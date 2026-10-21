@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basketball-Guide</title>
+<style>
+:root{--bg:#0b0d10;--card:#14171c;--card2:#1b1f26;--text:#f2f2f2;--muted:#9aa3ad;--accent:#ff5a1f;--accent2:#ffd60a;--line:#262b33;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:radial-gradient(circle at top right,#1d1410 0%,var(--bg) 45%);color:var(--text);font-size:16.5px;line-height:1.6;min-height:100%}
+header{background:#0b0d10;border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:5}
+header .bar{max-width:980px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em;font-style:italic}
+.brand span{color:var(--accent)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav button{background:var(--card);border:1px solid var(--line);color:var(--text);padding:7px 14px;cursor:pointer;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transform:skewX(-8deg)}
+nav button span{display:inline-block;transform:skewX(8deg)}
+nav button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+main{max-width:980px;margin:auto;padding:26px 18px 60px}
+section{display:none}
+section.active{display:block}
+h1{font-size:2.2rem;font-weight:900;text-transform:uppercase;font-style:italic;letter-spacing:.02em;margin:.1em 0 .3em;line-height:1.1}
+h1::after{content:"";display:block;width:70px;height:5px;background:var(--accent2);margin-top:8px;transform:skewX(-20deg)}
+h2{font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em;margin:1.8em 0 .6em;color:var(--accent2);border-left:5px solid var(--accent);padding-left:10px}
+h3{font-size:1.05rem;margin:.9em 0 .3em;color:var(--text)}
+.card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 20px;margin:12px 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid .card{margin:0}
+ul,ol{padding-left:1.2em}
+li{margin:.35em 0}
+.muted{color:var(--muted);font-size:.93rem}
+.hint{background:var(--card2);border-left:4px solid var(--accent2);padding:10px 16px;margin:14px 0;font-size:.95rem}
+.source{font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:10px;padding-top:8px}
+a{color:var(--accent2)}
+footer{max-width:980px;margin:auto;padding:0 18px 30px;color:var(--muted);font-size:.85rem}
+.table-wrap{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--card)}
+th{background:var(--accent);color:#fff;text-align:left;padding:9px;text-transform:uppercase;font-size:.8rem;letter-spacing:.05em}
+td{border-bottom:1px solid var(--line);padding:8px;vertical-align:top}
+tr:nth-child(even) td{background:var(--card2)}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">🏀 Basketball<span>-Guide</span></div>
+    <nav>
+      <button data-target="start" class="active"><span>Start</span></button>
+      <button data-target="regeln"><span>Regeln</span></button>
+      <button data-target="taktik"><span>Taktiken</span></button>
+      <button data-target="uebungen"><span>Übungen</span></button>
+      <button data-target="coaching"><span>Coaching</span></button>
+      <button data-target="glossar"><span>Glossar</span></button>
+      <button data-target="shop"><span>Shop</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="start" class="active">
+  <h1>Willkommen beim Basketball</h1>
+  <p>Dieser Guide erklärt Basketball für Fans, Eltern und Hobbyspieler: von den Grundregeln über Taktiken und Übungen bis zum Coaching.</p>
+  <div class="grid">
+    <div class="card"><h3>Regeln</h3><p class="muted">Vom Spielablauf bis zu Sonderfällen und Liga-Bestimmungen.</p></div>
+    <div class="card"><h3>Taktiken</h3><p class="muted">Verteidigung, Angriff und schnelle Übergänge.</p></div>
+    <div class="card"><h3>Übungen</h3><p class="muted">Dribbling, Wurf, Stabilität, Kraft und Sprungkraft.</p></div>
+    <div class="card"><h3>Coaching</h3><p class="muted">Führung, Didaktik und Teamkultur.</p></div>
+  </div>
+  <div class="card">
+    <h3>Erste Schritte für Neueinsteiger</h3>
+    <ol>
+      <li>Schau dir ein komplettes Spiel an, am besten eine Liga-Partie oder ein Highlight-Video mit Erklärung.</li>
+      <li>Lies im Bereich Regeln den Abschnitt „Grundlagen“. Danach verstehst du das Spiel schon ziemlich gut.</li>
+      <li>Schau im Glossar nach, was Begriffe wie „Airball“ oder „Crossover“ bedeuten.</li>
+      <li>Probiere eine Übung aus dem Bereich Übungen aus, zum Beispiel das stationäre Prellen.</li>
+    </ol>
+  </div>
+  <div class="hint">Die Angaben beziehen sich überwiegend auf die FIBA-Regeln, die in Europa und bei Nationalmannschaften gelten. In der NBA gibt es einige Abweichungen.</div>
+</section>
+
+<section id="regeln">
+  <h1>Regeln</h1>
+
+  <h2>Grundlagen</h2>
+  <div class="card">
+    <h3>Spielziel und Ablauf</h3>
+    <ul>
+      <li>Zwei Teams mit je fünf Spielern auf dem Feld versuchen, den Ball in den gegnerischen Korb zu werfen.</li>
+      <li>Ein Spiel dauert vier Viertel à 10 Minuten. Bei Gleichstand folgt eine Verlängerung von 5 Minuten.</li>
+      <li>Ein Wurf innerhalb der Dreipunktlinie zählt 2 Punkte, ein Wurf von außerhalb 3 Punkte, ein Freiwurf 1 Punkt.</li>
+    </ul>
+    <h3>Ball bewegen</h3>
+    <ul>
+      <li><strong>Dribbling:</strong> Der Ball darf nur durch Prellen weiterbewegt werden. Wer nach Abschluss des Dribblings erneut prellt, begeht ein Doppeldribbling.</li>
+      <li><strong>Schrittfehler:</strong> Wer den Ball hält, darf nur eine begrenzte Zahl Schritte machen, bevor er abspielt oder wirft.</li>
+    </ul>
+    <h3>Zeitregeln</h3>
+    <ul>
+      <li><strong>24-Sekunden-Regel:</strong> Das Angriffsteam muss innerhalb von 24 Sekunden einen regelkonformen Wurf abgeben.</li>
+      <li><strong>8-Sekunden-Regel:</strong> Der Ball muss nach einem Einwurf innerhalb von 8 Sekunden in die vordere Hälfte gebracht werden.</li>
+      <li><strong>3-Sekunden-Regel:</strong> Ein Angreifer darf sich nicht länger als 3 Sekunden in der gegnerischen Zone aufhalten, solange sein Team den Ball kontrolliert.</li>
+    </ul>
+    <div class="source">Quelle: FIBA-Basketballregeln 2026 (fiba.basketball, Regelwerk und Downloads).</div>
+  </div>
+
+  <h2>Regelübersicht für die Praxis</h2>
+  <div class="card">
+    <p class="muted">Vereinfachte Übersicht des regulären 5-gegen-5-Basketballs. Für Sonderfälle gelten die offiziellen Regeltexte.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Bereich</th><th>Regel</th><th>Praktische Bedeutung</th></tr>
+      <tr><td>Spielzeit</td><td>4 Viertel à 10 Minuten</td><td>Die Spieluhr stoppt bei bestimmten Unterbrechungen.</td></tr>
+      <tr><td>Verlängerung</td><td>Jeweils 5 Minuten</td><td>Bei Gleichstand folgt eine Verlängerung; weitere sind möglich.</td></tr>
+      <tr><td>Mannschaft</td><td>5 Spieler pro Team auf dem Feld</td><td>Wechsel sind nach den geltenden Bestimmungen möglich.</td></tr>
+      <tr><td>Punktwertung</td><td>1, 2 oder 3 Punkte</td><td>Freiwurf 1; Wurf innerhalb der Dreipunktlinie 2; Wurf von außerhalb 3.</td></tr>
+      <tr><td>Angriffszeit</td><td>24 Sekunden</td><td>Ein regelkonformer Wurfversuch muss innerhalb der Frist erfolgen.</td></tr>
+      <tr><td>Rückfeldregel</td><td>8 Sekunden</td><td>Der Ball muss innerhalb von 8 Sekunden ins Vorfeld gebracht werden.</td></tr>
+      <tr><td>Drei-Sekunden-Regel</td><td>Maximal 3 Sekunden in der gegnerischen Zone</td><td>Gilt, während das eigene Team vorne kontrolliert den Ball besitzt.</td></tr>
+      <tr><td>Fünf-Sekunden-Regel</td><td>Gilt in bestimmten Situationen</td><td>Zum Beispiel bei eng bewachtem Spieler mit Ball oder beim Einwurf.</td></tr>
+      <tr><td>Schrittfehler</td><td>Unzulässige Schritte mit dem Ball</td><td>Ein Spieler mit Ball darf nicht beliebig viele Schritte ohne Dribbling machen.</td></tr>
+      <tr><td>Doppeldribbling</td><td>Erneutes Dribbling nach Abschluss</td><td>Grundsätzlich ein Regelverstoß.</td></tr>
+      <tr><td>Ausball</td><td>Ball oder Ballführer berührt die Begrenzung</td><td>Das andere Team erhält in der Regel den Einwurf.</td></tr>
+      <tr><td>Körperkontakt</td><td>Unerlaubter Kontakt kann ein Foul sein</td><td>Entscheidend sind Position, Bewegung und Art des Kontakts.</td></tr>
+      <tr><td>Persönliche Fouls</td><td>Fünf persönliche Fouls</td><td>Der Spieler ist ausgeschieden und darf nicht mehr eingesetzt werden.</td></tr>
+      <tr><td>Teamfouls</td><td>Ab einer bestimmten Teamfoulgrenze</td><td>Im regulären Viertelbetrieb greift die Teamfoulstrafe grundsätzlich nach dem vierten Teamfoul; Ausnahmen gelten.</td></tr>
+      <tr><td>Unsportliches Foul</td><td>Gesondert bewerteter Kontakt</td><td>Es können Freiwürfe und Ballbesitz folgen.</td></tr>
+      <tr><td>Technisches Foul</td><td>Unsportliches Verhalten ohne regulären Körperkontakt</td><td>Die Strafe richtet sich nach Regel und Situation.</td></tr>
+      <tr><td>Korbinterferenz</td><td>Regelwidriger Eingriff am Ball beim Korbvorgang</td><td>Zum Beispiel Berührung des Balls am oder im Korb.</td></tr>
+      <tr><td>Einwurf</td><td>Ball kommt von außerhalb ins Spiel</td><td>Ort, Zeitvorgaben und Verhalten der Spieler sind geregelt.</td></tr>
+      <tr><td>Sprungball</td><td>Spielbeginn</td><td>Später wird der Ball meist über den wechselnden Ballbesitz vergeben.</td></tr>
+      <tr><td>Auswechslung</td><td>Nur bei zulässigen Unterbrechungen</td><td>Wechsel sind nicht beliebig während des laufenden Spiels möglich.</td></tr>
+    </table>
+    </div>
+    <div class="source">Quelle: FIBA-Basketballregeln 2026 und offizielle Regelinterpretationen 2026 (fiba.basketball; Downloads des Deutschen Basketball Bundes, dbb.de). Die Tabelle ist vereinfacht und ersetzt nicht die offiziellen Regeln.</div>
+  </div>
+
+  <h2>Bundesliga-Bestimmungen 2026/27 (BBL)</h2>
+  <div class="card">
+    <p class="muted">Die BBL-Spielordnung ergänzt die FIBA-Regeln um Ligabestimmungen. Sie ist kein vollständiges Regelbuch, daher gelten FIBA-Regeln und BBL-Bestimmungen gemeinsam.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>Thema</th><th>Bestimmung 2026/27</th><th>Bedeutung</th></tr>
+      <tr><td>Regelgrundlage</td><td>FIBA-Regeln inklusive Interpretationen, soweit die BBL nichts anderes bestimmt</td><td>Die allgemeinen Spielregeln bleiben die Basis.</td></tr>
+      <tr><td>Spielerregistrierung</td><td>Vorgeschriebene Teilnahme- und Einsatzberechtigungen</td><td>Nicht jeder vertraglich gebundene Spieler darf automatisch eingesetzt werden.</td></tr>
+      <tr><td>Mannschaftsmeldung</td><td>Bis zu 20 Spieler auf dem Mannschaftsmeldebogen</td><td>Die Meldezahl ist nicht gleich der Zahl der gleichzeitig spielenden Spieler.</td></tr>
+      <tr><td>Local Player</td><td>Einstufung nach Ausbildungs- und Teilnahmebedingungen</td><td>Der Status richtet sich nach den Voraussetzungen der Spielordnung.</td></tr>
+      <tr><td>Ausländische Spieler</td><td>Keine unbegrenzte Saison-Gesamtzahl als Beschränkung; mögliche Einschränkungen je Spiel</td><td>Für die Einsatzplanung zusätzlich die Wettbewerbsausschreibung prüfen.</td></tr>
+      <tr><td>Tabellenwertung</td><td>Sieg 2 positive, Niederlage 2 negative Wertungspunkte</td><td>Die Platzierung richtet sich nach den Wertungspunkten.</td></tr>
+      <tr><td>Gleichstand</td><td>Direkter Vergleich, Korbdifferenz der Direktduelle, Gesamtkorbdifferenz, Korbquotient, gegebenenfalls Losentscheid</td><td>Die Reihenfolge der Kriterien ist verbindlich.</td></tr>
+      <tr><td>Spieljury und Sanktionen</td><td>Gesonderte Spieljuryordnungen und Strafenkatalog</td><td>Nicht jeder Vorfall wird nur anhand der Spielregeln beurteilt.</td></tr>
+    </table>
+    </div>
+    <div class="source">Quellen: BBL-Spielordnung 2026/27 (insbesondere §§ 1, 5, 7, 16 und 20), BBL-Ausschreibung Deutsche Meisterschaft 2026/27 sowie BBL-Strafenkatalog und Spieljuryordnungen (easycredit-bbl.de, Bereich Ordnungen &amp; Standards). Die BBL-Spielordnung wurde am 30. Juni 2026 verabschiedet.</div>
+  </div>
+
+  <h2>Fortgeschritten</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Goaltending:</strong> Der Ball darf nicht berührt werden, während er auf dem Weg nach unten oder im Korb ist.</li>
+      <li><strong>Auszeiten und Wechsel:</strong> Jedes Team hat eine begrenzte Zahl an Auszeiten. Wechsel sind in zulässigen Unterbrechungen möglich.</li>
+    </ul>
+    <div class="source">Quelle: FIBA-Basketballregeln 2026.</div>
+  </div>
+</section>
+
+<section id="taktik">
+  <h1>Taktiken</h1>
+  <h2>Angriff: Grundlagen</h2>
+  <div class="card">
+    <p>Im Angriff geht es darum, dem Gegner Entscheidungen zu erschweren, bis ein Spieler einen möglichst guten Wurf bekommt. Dafür brauchst du keine komplizierten Spielzüge. Wichtig sind vier Prinzipien, die fast jede Offense trägt:</p>
+    <ul>
+      <li><strong>Raum schaffen (Spacing):</strong> Die Spieler verteilen sich über das Feld, damit Verteidiger nicht in der Zone zusammenstehen können. Faustregel: Jeder Spieler sollte einen Abstand von etwa drei bis vier Metern zum nächsten Mitspieler halten.</li>
+      <li><strong>Den Ball bewegen (Passing):</strong> Ein schneller Pass verschiebt die Verteidigung. Der Gegner muss sich nach jedem Pass neu orientieren, und genau dann entstehen Lücken.</li>
+      <li><strong>Sich bewegen (Cutting und Screening):</strong> Ein Spieler ohne Ball läuft, um Platz zu schaffen oder eine Anspielstation anzubieten. Ein Screen (Block) ist ein Stellen am Verteidiger eines Mitspielers, damit dieser freikommt.</li>
+      <li><strong>Lesen (Reading):</strong> Der Ballführer schaut, wie der Verteidiger reagiert. Er entscheidet dann: Zum Korb ziehen, einen Mitspieler anspielen oder selbst werfen.</li>
+    </ul>
+    <h3>Die fünf Positionen im Angriff</h3>
+    <ul>
+      <li><strong>1 – Point Guard (PG):</strong> Ist der Spielaufbauer. Er bringt den Ball nach vorne, sagt die Spielzüge an und trifft die meisten Entscheidungen. Typische Stärke: Übersicht und gute Pässe.</li>
+      <li><strong>2 – Shooting Guard (SG):</strong> Ist häufig ein Schütze. Er wartet auf Pässe, läuft nach Cuts zum Korb und nutzt freie Räume für Würfe.</li>
+      <li><strong>3 – Small Forward (SF):</strong> Ist vielseitig. Er kann werfen, zum Korb ziehen und Lücken im Angriff füllen.</li>
+      <li><strong>4 – Power Forward (PF):</strong> Stellt Blocks für Mitspieler, rollt nach Blocks zum Korb und holt Rebounds.</li>
+      <li><strong>5 – Center (C):</strong> Ist der Korbspezialist. Er stellt Blocks, schließt in Korbnähe ab und sichert den Angriff nach dem Wurf.</li>
+    </ul>
+    <p class="muted">Die Positionen beschreiben Aufgaben, keine starren Rollen. Ein Center kann auch werfen, und ein Point Guard darf ohne Ball schneiden.</p>
+  </div>
+
+  <h2>Angriff: Die wichtigsten Systeme</h2>
+  <div class="card">
+    <p>Die Tabelle gibt dir einen Überblick. Die Schwierigkeit zeigt, wie viel Abstimmung das System braucht. Beginne immer mit den einfachen Systemen. Bei jedem Eintrag siehst du das Ziel und die einzelnen Bewegungen der Spieler.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Nr.</th><th>Taktik</th><th>Schwierigkeit</th><th>Hauptziel und Bewegungen</th></tr>
+      <tr><td>1</td><td>Pick and Roll</td><td>Einfach–mittel</td><td>
+        <strong>Ziel:</strong> Ein Block erzeugt eine Lücke, weil der Verteidiger des Ballführers kurz gebunden ist. Der Ballführer nutzt diese Lücke, um zum Korb zu ziehen oder einen freien Mitspieler zu finden.
+        <ul>
+          <li>PG (1) dribbelt auf den Block zu und wartet, bis der Block steht.</li>
+          <li>C (5) läuft an den Verteidiger des PG, bleibt stabil stehen und stellt den Block.</li>
+          <li>C (5) rollt nach dem Block direkt zum Korb, bevor der Verteidiger zurückkommt.</li>
+          <li>Die Außenspieler halten ihre Positionen, damit der Verteidiger nicht helfen kann.</li>
+          <li>PG entscheidet: Ziehen, Pass zum rollenden C oder Pass nach außen.</li>
+        </ul></td></tr>
+      <tr><td>2</td><td>Give and Go</td><td>Einfach</td><td>
+        <strong>Ziel:</strong> Der Verteidiger wird durch einen Pass überrascht und verliert den Spieler aus den Augen. Der Passgeber nutzt diesen Moment für einen schnellen Lauf zum Korb.
+        <ul>
+          <li>PG (1) passt zum SG (2) auf dem Flügel.</li>
+          <li>PG (1) läuft sofort nach dem Pass zum Korb, ohne zu warten.</li>
+          <li>SG (2) prüft, ob der Verteidiger den Laufweg verliert.</li>
+          <li>Ist der Weg frei, spielt SG den Rückpass, PG legt den Ball ab oder wirft.</li>
+        </ul></td></tr>
+      <tr><td>3</td><td>Pass and Cut / 5-Out</td><td>Einfach–mittel</td><td>
+        <strong>Ziel:</strong> Alle fünf Spieler stehen außen, sodass der Verteidiger keine Hilfe hat. Durch Pässe und Schnitte entstehen Lücken in der Zone.
+        <ul>
+          <li>Der Ballführer passt zu einem Außenspieler und schneidet danach selbst.</li>
+          <li>Ist kein Pass möglich, läuft der schneidende Spieler auf die ballferne Seite.</li>
+          <li>Ballferne Spieler bewegen sich in freie Ecken oder auf den Flügel.</li>
+          <li>Der C bietet sich nahe am Korb als Anspielstation an.</li>
+        </ul></td></tr>
+      <tr><td>4</td><td>Motion Offense</td><td>Mittel</td><td>
+        <strong>Ziel:</strong> Die Verteidigung wird durch ständige Bewegung verwirrt, sodass freie Würfe und Drives entstehen. Die Spieler reagieren auf den Verteidiger, statt einer festen Reihenfolge zu folgen.
+        <ul>
+          <li>Nach jedem Pass wird geschnitten oder ein Block gestellt.</li>
+          <li>Die Außenspieler gehen bei freien Laufwegen zum Korb und nach einem Pass in freie Räume.</li>
+          <li>Die großen Spieler stellen Blocks für Guards oder Flügelspieler.</li>
+          <li>Der Ballführer sucht zuerst den Korbweg, dann den freien Werfer, dann die nächste Option.</li>
+        </ul></td></tr>
+      <tr><td>5</td><td>Horns Offense</td><td>Mittel</td><td>
+        <strong>Ziel:</strong> Der Angriff startet mit zwei Blocksteller an den hohen Blocks. Der Gegner muss sich früh entscheiden, welchen Block er verteidigt.
+        <ul>
+          <li>PG (1) dribbelt in die Mitte und wählt eine Seite.</li>
+          <li>PF (4) stellt den Block auf einer Seite, danach rollt er zum Korb oder dreht nach außen ab.</li>
+          <li>C (5) hält den anderen Block als zweite Option.</li>
+          <li>SG (2) und SF (3) halten die Außenseiten für einen Pass nach außen.</li>
+        </ul></td></tr>
+      <tr><td>6</td><td>Dribble Handoff (DHO)</td><td>Mittel</td><td>
+        <strong>Ziel:</strong> Eine Übergabe in Bewegung wirkt wie ein kurzer Block und zieht den Verteidiger vom Ball weg. Der Ballführer nutzt die Lücke für einen Drive.
+        <ul>
+          <li>PG (1) dribbelt zum C (5), der an der Seite oder am oberen Rand der Zone wartet.</li>
+          <li>C (5) übergibt den Ball sofort, während PG eng vorbeiläuft.</li>
+          <li>PG nimmt den Ball in Bewegung an und greift den Korb an.</li>
+          <li>Bleibt der Verteidiger am Übergabepunkt zurück, zieht PG direkt zum Korb.</li>
+        </ul></td></tr>
+      <tr><td>7</td><td>Floppy / Shooter Screen</td><td>Mittel</td><td>
+        <strong>Ziel:</strong> Ein guter Werfer bekommt durch mehrere Blocks einen freien Wurf. Der Verteidiger muss ständig wechseln und verliert dabei den Überblick.
+        <ul>
+          <li>SG (2) startet nahe der Grundlinie und läuft um den ersten Block nach außen.</li>
+          <li>SF (3) oder PF (4) stellen die Blocks, damit der Verteidiger hängen bleibt.</li>
+          <li>PG (1) wartet oben und passt, sobald SG frei steht.</li>
+          <li>SG wirft direkt, wenn genug Platz ist, sonst geht er zum Korb.</li>
+        </ul></td></tr>
+      <tr><td>8</td><td>Post-Up</td><td>Einfach–mittel</td><td>
+        <strong>Ziel:</strong> Ein körperlich oder technisch starker Spieler arbeitet nahe am Korb gegen seinen Verteidiger. Ein Post-Spieler bekommt oft einfache Abschlüsse oder bindet doppelte Verteidigung.
+        <ul>
+          <li>C (5) positioniert sich mit dem Rücken zum Korb und fordert den Ball.</li>
+          <li>PG (1) passt in den Post, die übrigen Spieler halten Abstand.</li>
+          <li>Der Post-Spieler dreht sich zur Mitte oder Grundlinie und sucht den Abschluss.</li>
+          <li>Hilft die Verteidigung doppelt, passt er zum freien Außenspieler.</li>
+        </ul></td></tr>
+      <tr><td>9</td><td>Spain Pick and Roll</td><td>Fortgeschritten</td><td>
+        <strong>Ziel:</strong> Der Verteidiger des rollenden Centers wird zusätzlich durch einen zweiten Block gestört. So wird der Roll zum Korb noch freier.
+        <ul>
+          <li>C (5) stellt den ersten Block für PG (1) und rollt danach zum Korb.</li>
+          <li>PF (4) stellt kurz nach dem Start des Rollens einen Block für den Verteidiger von C.</li>
+          <li>PF (4) löst sich danach nach außen oder zum Korb.</li>
+          <li>PG entscheidet zwischen Ziehen, Pass zu C oder Pass zu PF für den Wurf.</li>
+        </ul></td></tr>
+      <tr><td>10</td><td>Fast Break</td><td>Einfach–mittel</td><td>
+        <strong>Ziel:</strong> Nach einem Rebound oder Ballgewinn wird sofort angegriffen, bevor die Verteidigung steht. Das bringt einfache Punkte, wenn die Entscheidungen schnell und sauber sind.
+        <ul>
+          <li>C (5) sichert den Rebound und spielt einen schnellen Pass nach vorne.</li>
+          <li>SG (2) und SF (3) sprinten auf den Außenspuren nach vorne.</li>
+          <li>PF (4) läuft in die Mitte, um einen einfachen Abschluss zu bekommen.</li>
+          <li>PG (1) entscheidet: Ziehen, Pass auf den Flügel oder Pass zum nachlaufenden Mitspieler.</li>
+        </ul></td></tr>
+    </table></div>
+  </div>
+
+  <h2>Angriff: Spielzüge Schritt für Schritt</h2>
+
+  <div class="card">
+    <h3>1. Pick and Roll</h3>
+    <p><strong>Ziel:</strong> Der Ballführer nutzt einen Block, um selbst zum Korb zu ziehen, den Blocksteller anzuspielen oder einen freien Mitspieler zu finden. Es ist der wichtigste Spielzug im modernen Basketball, deshalb lohnt es sich, ihn gut zu verstehen.</p>
+    <p><strong>So sieht der Start aus:</strong> Der PG steht oben an der Dreierlinie. Der C kommt aus dem hohen Bereich und stellt einen Block am Verteidiger des PG.</p>
+    <ol>
+      <li><strong>PG (1):</strong> Dribbelt kontrolliert oben und wartet, bis der Block steht. Er sollte nicht zu früh losrennen, sonst kommt der Block zu spät.</li>
+      <li><strong>C (5):</strong> Stellt einen stabilen, regelkonformen Block seitlich am Verteidiger. Wichtig: Er bewegt sich nicht während des Blocks. Danach rollt er direkt Richtung Korb, bevor der Verteidiger zurückkommt.</li>
+      <li><strong>SG (2):</strong> Hält eine Außenseite besetzt. Dadurch kann der Verteidiger des PG nicht einfach zur Mitte helfen.</li>
+      <li><strong>SF (3):</strong> Besetzt die gegenüberliegende Außenseite oder die Ecke, damit auch dort Platz ist.</li>
+      <li><strong>PF (4):</strong> Hält die schwache Seite besetzt oder steht in der Ecke für einen freien Wurf.</li>
+    </ol>
+    <p><strong>Die Entscheidung des PG:</strong></p>
+    <ul>
+      <li>Ist der Weg frei, zieht er selbst zum Korb.</li>
+      <li>Hilft ein Verteidiger gegen den Ballführer, passt er zum rollenden Center.</li>
+      <li>Wird der Center verteidigt, passt er nach außen zum freien Werfer.</li>
+      <li>Verteidigt der Gegner alle Optionen, spielt er den Ball zurück und baut den Angriff neu auf. Das ist kein Fehler, sondern ein sinnvoller Teil des Spielzugs.</li>
+    </ul>
+    <p><strong>Typische Fehler:</strong> Der C rollt zu früh oder zu langsam. Die anderen Spieler stehen zu nah beieinander und blockieren sich gegenseitig.</p>
+  </div>
+
+  <div class="card">
+    <h3>2. Give and Go</h3>
+    <p><strong>Ziel:</strong> Einen Verteidiger durch einen Pass und einen sofortigen Lauf zum Korb überraschen. Das ist ein Klassiker, weil er einfach ist und trotzdem sehr wirkungsvoll.</p>
+    <ol>
+      <li><strong>PG (1)</strong> passt zum SG (2) auf dem Flügel.</li>
+      <li><strong>PG (1)</strong> schneidet sofort mit Tempo zum Korb. Die Bewegung muss direkt nach dem Pass beginnen, sonst reagiert der Verteidiger.</li>
+      <li><strong>SG (2)</strong> beobachtet, ob der Verteidiger von PG den Laufweg verliert. Ist das so, spielt er den Ball sofort zurück.</li>
+      <li><strong>SF (3)</strong> hält die gegenüberliegende Seite besetzt, damit die Verteidigung nicht in die Mitte rücken kann.</li>
+      <li><strong>PF (4)</strong> bleibt auf der ballfernen Seite oder bereitet sich auf einen möglichen Rebound vor.</li>
+      <li><strong>C (5)</strong> hält den Bereich unter dem Korb frei, damit der Laufweg nicht blockiert ist.</li>
+    </ol>
+    <p><strong>Abschluss:</strong> PG bekommt den Rückpass und wirft oder legt den Ball am Korb ab. Ist der Weg blockiert, bleibt SG am Ball und spielt den nächsten Pass.</p>
+    <p><strong>Typischer Fehler:</strong> Der Passgeber bleibt stehen und schaut zu. Der Spielzug lebt von der Bewegung nach dem Pass.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. Pass and Cut mit fünf Spielern</h3>
+    <p><strong>Ziel:</strong> Freie Räume durch Passen und Schneiden erzeugen, ohne ein kompliziertes Schema auswendig zu lernen. Diese Variante eignet sich gut, um das Zusammenspiel im Team zu verbessern.</p>
+    <ol>
+      <li><strong>PG (1)</strong> passt vom oberen Bereich zum SG (2) auf dem Flügel.</li>
+      <li><strong>PG (1)</strong> schneidet zum Korb. Ist kein Pass möglich, läuft er auf die ballferne Seite und besetzt dort eine freie Position.</li>
+      <li><strong>SG (2)</strong> prüft zuerst den Pass zum schneidenden PG. Ist er nicht frei, hält SG den Ball kurz und sucht den nächsten Pass.</li>
+      <li><strong>SF (3)</strong> bewegt sich auf der ballfernen Seite in eine freie Anspielposition.</li>
+      <li><strong>PF (4)</strong> nutzt einen freien Laufweg zum Korb, sobald der Verteidiger den Ball beobachtet.</li>
+      <li><strong>C (5)</strong> hält die Zone frei oder bietet sich nahe am Korb als Anspielstation an.</li>
+      <li><strong>Alle fünf:</strong> Nach jedem Pass wird geschnitten oder eine freie Position besetzt.</li>
+    </ol>
+    <p><strong>Abschluss:</strong> Korbleger nach einem Cut, freier Wurf nach einem Pass oder ein weiterer Pass zum freien Mitspieler.</p>
+    <p><strong>Grundregel:</strong> Nicht alle schneiden gleichzeitig, sonst ist die Zone überfüllt und die Angreifer stehen sich im Weg.</p>
+  </div>
+
+  <div class="card">
+    <h3>4. Motion Offense</h3>
+    <p><strong>Ziel:</strong> Eine flexible Offense, bei der die Spieler auf die Bewegung der Mitspieler reagieren, statt feste Laufwege abzuspulen. Motion ist ein System aus Prinzipien, kein fester Ablauf. Deshalb ist sie für Einsteiger zunächst schwerer, dafür aber sehr vielseitig.</p>
+    <ol>
+      <li><strong>PG (1)</strong> bringt den Ball nach vorne und passt auf einen Flügel.</li>
+      <li><strong>PG (1)</strong> schneidet zum Korb oder stellt anschließend einen Block für einen Mitspieler.</li>
+      <li><strong>SG (2) und SF (3)</strong> halten die Außenseiten. Bei freien Laufwegen schneiden sie zum Korb, nach einem Pass gehen sie in freie Räume.</li>
+      <li><strong>PF (4)</strong> stellt Blocks für die Guards oder bewegt sich nach einem Block selbst zum Korb.</li>
+      <li><strong>C (5)</strong> stellt einen Block am Ball oder für einen Flügelspieler und rollt danach zum Korb.</li>
+      <li><strong>Der Ballführer</strong> sucht zuerst den freien Korbweg, dann den freien Werfer und dann die nächste Passoption. Diese Reihenfolge hilft beim Entscheiden.</li>
+    </ol>
+    <p><strong>Die drei Grundprinzipien:</strong> Abstand halten, nach jedem Pass bewegen, Blocks sinnvoll nutzen. Wenn diese drei Dinge sitzen, entsteht die Offense fast von selbst.</p>
+  </div>
+
+  <div class="card">
+    <h3>5. Horns Offense</h3>
+    <p><strong>Ziel:</strong> Den Angriff mit zwei Spielern an den hohen Blocks beginnen. Das gibt dem Team von Anfang an zwei zusätzliche Optionen.</p>
+    <p><strong>Ausgangsposition:</strong> PG (1) hat den Ball oben. PF (4) und C (5) stehen links und rechts am oberen Rand der Zone. SG (2) und SF (3) stehen auf den Flügeln.</p>
+    <ol>
+      <li><strong>PG (1)</strong> dribbelt in die Mitte und entscheidet, welchen der beiden hohen Blocks er nutzt.</li>
+      <li><strong>PF (4)</strong> stellt den Block auf einer Seite und kann danach zum Korb rollen oder nach außen abdrehen.</li>
+      <li><strong>C (5)</strong> hält den anderen hohen Block als zweite Option.</li>
+      <li><strong>SG (2)</strong> hält die ballnahe Außenseite und ist für einen Pass nach außen bereit.</li>
+      <li><strong>SF (3)</strong> hält die ballferne Seite und beobachtet, ob sein Verteidiger zur Mitte hilft.</li>
+      <li><strong>PG (1)</strong> nutzt den Block, zieht zum Korb oder passt zum abrollenden Big Man.</li>
+      <li>Ist die Mitte geschlossen, passt PG zu einem Flügelspieler und der Angriff geht von dort weiter.</li>
+    </ol>
+    <p><strong>Vorteil:</strong> Der Gegner muss früh entscheiden, wie er die beiden Blocksteller verteidigt.</p>
+  </div>
+
+  <div class="card">
+    <h3>6. Dribble Handoff (DHO)</h3>
+    <p><strong>Ziel:</strong> Eine Ballübergabe in Bewegung nutzen, um einen Verteidiger zu überwinden. Die Übergabe wirkt wie ein kurzer Block und lockt den Verteidiger vom Ball weg.</p>
+    <ol>
+      <li><strong>PG (1)</strong> dribbelt zum C (5), der sich seitlich oder am oberen Rand der Zone anbietet.</li>
+      <li><strong>C (5)</strong> nimmt eine stabile Position ein und übergibt den Ball sofort an PG oder einen heranlaufenden Mitspieler.</li>
+      <li><strong>PG (1)</strong> läuft eng am Übergebenden vorbei und nimmt den Ball in Bewegung auf.</li>
+      <li><strong>SG (2)</strong> hält die gegenüberliegende Ecke, <strong>SF (3)</strong> den ballfernen Flügel.</li>
+      <li><strong>PF (4)</strong> besetzt die gegenüberliegende Innenseite oder stellt einen ergänzenden Block.</li>
+      <li>Der neue Ballführer greift sofort an, sobald der Verteidiger am Übergabepunkt zurückbleibt.</li>
+    </ol>
+    <p><strong>Abschluss:</strong> Zug zum Korb, Wurf aus der Bewegung oder Pass zum abrollenden Mitspieler.</p>
+  </div>
+
+  <div class="card">
+    <h3>7. Floppy – einen Werfer freispielen</h3>
+    <p><strong>Ziel:</strong> Einen guten Distanzschützen durch Blocks für einen freien Wurf vorbereiten. Der Werfer läuft dabei um mehrere Blocks herum, und die Verteidiger müssen ständig wechseln.</p>
+    <ol>
+      <li><strong>PG (1)</strong> hat den Ball oben und wartet auf die Bewegung des Werfers.</li>
+      <li><strong>SG (2)</strong> startet nahe der Grundlinie und läuft um einen oder mehrere Blocks nach außen.</li>
+      <li><strong>SF (3)</strong> stellt einen Block für SG (2) oder besetzt die gegenüberliegende Seite.</li>
+      <li><strong>PF (4)</strong> stellt einen weiteren Block oder hält eine freie Passposition.</li>
+      <li><strong>C (5)</strong> hält die Zone besetzt oder stellt einen ergänzenden Block.</li>
+      <li><strong>PG (1)</strong> passt zum freigelaufenen Werfer, sobald dieser eine freie Position erreicht.</li>
+      <li><strong>SG (2)</strong> wirft direkt, wenn genug Platz ist. Sonst greift er den Korb an oder spielt den Ball weiter.</li>
+    </ol>
+    <p><strong>Wichtig:</strong> Die Blocks müssen zeitlich abgestimmt sein. Der Werfer darf nicht zu früh loslaufen, sonst läuft er ins Leere.</p>
+  </div>
+
+  <div class="card">
+    <h3>8. Post-Up</h3>
+    <p><strong>Ziel:</strong> Einen Spieler mit guter Technik nahe am Korb gezielt einsetzen. Der Spieler im Post steht mit dem Rücken zum Korb und nutzt Körperkraft und Drehungen.</p>
+    <ol>
+      <li><strong>PG (1)</strong> bringt den Ball nach vorne und passt zu SF (3) oder PF (4), die den Ball sicher in den Post spielen können.</li>
+      <li><strong>C (5)</strong> positioniert sich mit dem Rücken zum Korb im tiefen Bereich und fordert den Ball.</li>
+      <li><strong>SG (2)</strong> bleibt in der Ecke für einen möglichen Pass nach außen.</li>
+      <li><strong>SF (3)</strong> hält den gegenüberliegenden Flügel frei.</li>
+      <li><strong>PF (4)</strong> besetzt die gegenüberliegende Seite oder bereitet sich auf den Rebound vor.</li>
+      <li><strong>Der Post-Spieler</strong> sichert den Ball, nutzt einen kontrollierten Schritt zur Mitte oder zur Grundlinie und sucht den Abschluss.</li>
+      <li>Hilft die Verteidigung doppelt, passt der Post-Spieler zum freien Außenspieler.</li>
+    </ol>
+    <p><strong>Wichtig:</strong> Die übrigen Spieler müssen Abstand halten. Stehen alle in der Zone, hat der Post-Spieler keinen Raum.</p>
+  </div>
+
+  <div class="card">
+    <h3>9. Spain Pick and Roll</h3>
+    <p><strong>Ziel:</strong> Den klassischen Pick and Roll durch einen zusätzlichen Block für den rollenden Center erweitern. Dieser Spielzug ist fortgeschritten, weil alle Spieler exakt zusammenarbeiten müssen.</p>
+    <ol>
+      <li><strong>PG (1)</strong> beginnt mit dem Ball oben.</li>
+      <li><strong>C (5)</strong> stellt den ersten Block für PG (1) und rollt anschließend zum Korb.</li>
+      <li><strong>PF (4)</strong> stellt kurz nach dem Start des Rollens einen zusätzlichen Block für den Verteidiger von C (5) und löst sich dann nach außen oder zum Korb.</li>
+      <li><strong>SG (2)</strong> besetzt die ballnahe Ecke, <strong>SF (3)</strong> die ballferne Ecke oder den Flügel.</li>
+      <li><strong>PG (1)</strong> entscheidet, ob er selbst zieht, C (5) anspielt oder PF (4) für einen freien Wurf sucht.</li>
+    </ol>
+    <p><strong>Warum es funktioniert:</strong> Die Verteidigung muss gleichzeitig Ballführer, rollenden Center und zusätzlichen Blocksteller im Blick behalten.</p>
+  </div>
+
+  <div class="card">
+    <h3>10. Fast Break</h3>
+    <p><strong>Ziel:</strong> Nach einem Rebound oder Ballgewinn angreifen, bevor der Gegner seine Verteidigung organisieren kann. Das ist der schnellste Weg zu einfachen Punkten.</p>
+    <ol>
+      <li><strong>C (5)</strong> sichert den Rebound und spielt möglichst schnell einen kontrollierten Pass nach vorne.</li>
+      <li><strong>PG (1)</strong> bietet sich für den ersten Pass an oder übernimmt den Ball und treibt ihn nach vorne.</li>
+      <li><strong>SG (2)</strong> sprintet auf einer Außenspur nach vorne.</li>
+      <li><strong>SF (3)</strong> sprintet auf der anderen Außenspur nach vorne.</li>
+      <li><strong>PF (4)</strong> läuft direkt zum Korb oder in die Mitte, um einen einfachen Abschluss zu bekommen.</li>
+      <li><strong>PG (1)</strong> entscheidet, ob er selbst zieht, auf den Flügel passt oder den nachlaufenden Mitspieler bedient.</li>
+      <li>Ist kein schneller Abschluss möglich, geht das Team in die organisierte Offense über.</li>
+    </ol>
+    <p><strong>Grundregel:</strong> Schnelligkeit ist wichtig, aber ein schlechter Pass oder ein überhasteter Abschluss zerstört den Vorteil sofort.</p>
+  </div>
+  <div class="source">Quelle: eigene Ausarbeitung, bitte Quelle ergänzen.</div>
+
+  <h2>Verteidigung: Grundlagen</h2>
+  <div class="card">
+    <p>Eine gute Defense entsteht nicht nur daraus, den Gegner am Werfen zu hindern. Sie entsteht durch Kommunikation, gegenseitiges Vertrauen, Disziplin und die Bereitschaft, füreinander zu arbeiten. Fünf Spieler müssen wie eine Einheit verteidigen: Wenn einer geschlagen wird, hilft der nächste, und die anderen sichern ab.</p>
+    <h3>Die fünf Positionen in der Defense</h3>
+    <ul>
+      <li><strong>1 – Point Guard (PG):</strong> verteidigt häufig den gegnerischen Spielmacher.</li>
+      <li><strong>2 – Shooting Guard (SG):</strong> verteidigt häufig einen gegnerischen Außenspieler.</li>
+      <li><strong>3 – Small Forward (SF):</strong> verteidigt Flügelspieler und hilft beim Rebound.</li>
+      <li><strong>4 – Power Forward (PF):</strong> verteidigt häufig größere Flügel- oder Innenspieler.</li>
+      <li><strong>5 – Center (C):</strong> schützt den Korb und organisiert oft die Hilfe in Korbnähe.</li>
+    </ul>
+    <p class="muted">Die Zuordnung ist flexibel. Entscheidend sind Fähigkeiten, Größe und Spielsituation.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Defensive Grundstellung</h3>
+      <ul>
+        <li>Füße etwa schulterbreit, Knie gebeugt, Hüfte tief.</li>
+        <li>Gewicht auf dem Vorderfuß, Oberkörper leicht nach vorne.</li>
+        <li>Hände aktiv halten, ohne nach jedem Dribbling zu schlagen.</li>
+        <li>Seitlich mit kurzen, kontrollierten Schritten bewegen.</li>
+        <li>Die Füße nicht kreuzen, solange seitliche Bewegung möglich ist.</li>
+      </ul>
+      <p><strong>Ziel:</strong> Vor dem Angreifer bleiben, statt ihm hinterherzulaufen.</p>
+    </div>
+    <div class="card">
+      <h3>2. Ballverteidigung (On-Ball)</h3>
+      <ul>
+        <li>Der Verteidiger steht zwischen Ballführer und Korb.</li>
+        <li>Der Abstand ist so gewählt, dass ein Wurf erschwert und ein Drive gebremst werden kann.</li>
+        <li>Die Körperposition lenkt den Angreifer zu einer Seite.</li>
+        <li>Bei Richtungswechseln mit den Füßen reagieren, nicht nur mit den Armen.</li>
+        <li>Bei einem Durchbruch sofort Hilfe organisieren.</li>
+      </ul>
+      <p><strong>Ziel:</strong> Den Ballführer kontrollieren, ohne unnötige Fouls zu machen.</p>
+    </div>
+    <div class="card">
+      <h3>3. Help Defense</h3>
+      <ul>
+        <li>Verteidiger ohne Ball stehen nicht einfach neben ihrem Gegenspieler.</li>
+        <li>Sie positionieren sich so, dass sie einen möglichen Durchbruch stoppen können.</li>
+        <li>Der Helfer ruft deutlich „Help!“ oder „Drive!“.</li>
+        <li>Der ursprüngliche Verteidiger erholt sich zurück zu seinem Angreifer.</li>
+        <li>Die übrigen Verteidiger sichern freie Gegenspieler und Passwege ab.</li>
+      </ul>
+      <p><strong>Ziel:</strong> Ein geschlagener Verteidiger darf nicht automatisch zu einem freien Korbleger führen.</p>
+    </div>
+    <div class="card">
+      <h3>4. Box-out und Rebound</h3>
+      <ul>
+        <li>Beim Wurf dreht sich jeder Verteidiger zum relevanten Angreifer.</li>
+        <li>Körperkontakt kontrolliert herstellen und den Gegner vom Korb fernhalten.</li>
+        <li>Erst den Gegenspieler blockieren, dann den Ball verfolgen.</li>
+        <li>Den Rebound mit zwei Händen sichern und kontrolliert weiterspielen.</li>
+      </ul>
+      <p><strong>Ziel:</strong> Die Defense ist erst abgeschlossen, wenn das Team den Ballbesitz wirklich gewinnt.</p>
+    </div>
+  </div>
+  <div class="source">Grundlagen: Die ausführlichen Erklärungen stammen aus der Defense-Übersicht, die du mir gegeben hast. Bitte Quelle ergänzen.</div>
+
+  <h2>Mann-Mann-Verteidigung (Man-to-Man)</h2>
+  <div class="card">
+    <p><strong>Grundidee:</strong> Jeder Verteidiger übernimmt zunächst einen Gegenspieler. Gleichzeitig helfen alle einander, sobald ein Angreifer den direkten Verteidiger schlägt.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Position 1 – gegnerischen PG verteidigen</h3>
+        <ul>
+          <li>Setzt den Ballführer unter kontrollierten Druck.</li>
+          <li>Lenkt ihn in eine gewünschte Richtung, etwa zur Seitenlinie.</li>
+          <li>Verhindert einfache Dribblings durch die Mitte.</li>
+          <li>Ruft frühzeitig Screens an.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Position 2 – gegnerischen SG verteidigen</h3>
+        <ul>
+          <li>Bleibt zwischen Gegenspieler und Korb.</li>
+          <li>Verfolgt ihn bei Cuts zum Korb.</li>
+          <li>Bei einem Screen entscheidet die Teamregel: durchgehen, darübergehen oder wechseln.</li>
+          <li>Bleibt nach einem Pass aufmerksam, denn der Passgeber kann direkt zum Korb schneiden.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Position 3 – gegnerischen SF verteidigen</h3>
+        <ul>
+          <li>Kontrolliert den Flügel und hilft bei Drives in die Zone.</li>
+          <li>Steht bei ballferner Position etwas näher zur Mitte, ohne den eigenen Gegenspieler zu verlieren.</li>
+          <li>Schließt beim Wurf zum Rebound ab.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Position 4 – gegnerischen PF verteidigen</h3>
+        <ul>
+          <li>Verteidigt den Bereich nahe der Zone und den High Post.</li>
+          <li>Hilft bei Durchbrüchen, wenn die Teamregel es verlangt.</li>
+          <li>Nimmt nach einem Wurf den körperlich passenden Gegner zum Box-out auf.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Position 5 – gegnerischen C verteidigen</h3>
+        <ul>
+          <li>Schützt den Korb und kontrolliert den Low Post.</li>
+          <li>Kommuniziert, wenn ein Angreifer zum Korb zieht.</li>
+          <li>Entscheidet nach Trainerregel, ob er einen Korbleger direkt contestet oder zuerst den Drive verlangsamt.</li>
+          <li>Sichert den defensiven Rebound.</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Was das Team gemeinsam macht</h3>
+    <ul>
+      <li>Nach jedem Pass bewegen sich alle fünf zum Ball, zur eigenen Zuordnung und in die Help-Position.</li>
+      <li>Bei einem Drive helfen die nächstgelegenen Spieler, die übrigen sichern mögliche Pässe ab.</li>
+      <li>Nach einem Pass nach außen sprinten die Verteidiger wieder zu ihren Gegenspielern.</li>
+      <li>Bei jedem Wurf wird ausgeboxt und gereboundet.</li>
+    </ul>
+    <p><strong>Vorteile:</strong> Klare individuelle Verantwortung, vielseitig und ideal, um defensive Grundlagen zu entwickeln.<br><strong>Schwierigkeit:</strong> Alle fünf müssen Ball und Gegenspieler gleichzeitig wahrnehmen.</p>
+    <div class="source">Quelle: jes-basketball.com (Abschnitt Mann-Mann).</div>
+  </div>
+
+  <h2>Zonenverteidigung</h2>
+  <div class="card">
+    <p class="muted">Die Spieler verteidigen zuerst Räume statt einzelner Gegenspieler. Die Formation verschiebt sich mit dem Ball.</p>
+    <h3>Zone 2–3: zwei vorne, drei hinten</h3>
+    <ol>
+      <li><strong>Position 1 (vorne links):</strong> Verteidigt den Ball auf der eigenen Seite und lenkt den Ballführer nach außen. Bei einem Pass zur Mitte stellt er sich so, dass der Pass durch die Zone erschwert wird.</li>
+      <li><strong>Position 2 (vorne rechts):</strong> Übernimmt die gegenüberliegende Seite. Ist der Ball auf der anderen Seite, rückt er zur Mitte und sichert den Passweg. Er spricht mit Position 1 ab, wer einen Pass in den High Post kontrolliert.</li>
+      <li><strong>Position 3 (hinten außen):</strong> Verteidigt Flügel und Ecke. Bei einem Pass in die Ecke rückt er heraus, um einen freien Wurf zu verhindern.</li>
+      <li><strong>Position 4 (hinten Mitte links):</strong> Schützt den Korbbereich, hilft bei Drives und sichert Rebounds. Verschiebt sich zur Ballseite, wenn der Ball nahe der Grundlinie gespielt wird.</li>
+      <li><strong>Position 5 (hinten Mitte):</strong> Der wichtigste Korbschutz. Beobachtet Angreifer in der Zone, kommuniziert freie Cuts und entscheidet bei Pässen zum High Post schnell, ob er den Ballführer aufnimmt oder die Korbnähe schützt.</li>
+    </ol>
+    <h3>So reagiert die Zone auf den Ball</h3>
+    <ul>
+      <li><strong>Ball oben:</strong> Die beiden vorderen Spieler kontrollieren Ball und Passwege, die hinteren drei schützen die Zone.</li>
+      <li><strong>Ball am Flügel:</strong> Der vordere Spieler der Ballseite rückt heraus, die übrigen verschieben sich zur Ballseite und sichern die Mitte.</li>
+      <li><strong>Ball in der Ecke:</strong> Der äußere Spieler der hinteren Reihe geht zum Ball, der Center schützt den Korb.</li>
+      <li><strong>Ball in der Mitte:</strong> Die vorderen Spieler schließen die Passwege, die hintere Reihe lässt den Korb nie ungeschützt.</li>
+      <li><strong>Wurf:</strong> Alle fünf orientieren sich zum Rebound und blocken Angreifer aus.</li>
+    </ul>
+    <p><strong>Vorteile:</strong> Schützt die Zone und erschwert Drives. Gut bei körperlich unterlegenen Teams.<br><strong>Schwächen:</strong> Gute Dreierschützen, schnelle Ballbewegung und Angriffe über den High Post können die Zone auseinanderziehen.</p>
+  </div>
+  <div class="card">
+    <h3>Zone 3–2: drei außen, zwei innen</h3>
+    <p>Drei Spieler verteidigen den oberen und seitlichen Außenbereich, zwei schützen die Zone näher am Korb. Die Formation eignet sich besonders gegen Teams, die viele Würfe von außen nehmen.</p>
+    <ul>
+      <li><strong>Position 1 (Mitte oben):</strong> Setzt den Ballführer unter Druck, lenkt den Ball auf eine Seite und erschwert den Pass in die Mitte. Ruft früh, wenn ein Screen gestellt wird.</li>
+      <li><strong>Position 2 (rechts oben):</strong> Verteidigt den rechten Flügel und unterstützt Position 1. Bei einem Pass in die rechte Ecke rückt er heraus oder der zuständige hintere Spieler – das muss vorab festgelegt sein.</li>
+      <li><strong>Position 3 (links oben):</strong> Spiegelbildlich zu Position 2. Verschiebt sich zur Mitte, wenn der Ball auf der Gegenseite ist, und achtet auf schnelle Seitenwechsel.</li>
+      <li><strong>Position 4 (links hinten):</strong> Schützt die Zone und die linke Grundlinie, hilft bei Drives und sichert Rebounds. Rückt bei Bedarf zum Flügel heraus.</li>
+      <li><strong>Position 5 (rechts hinten):</strong> Übernimmt die Gegenseite, schützt den Korb und muss besonders aufmerksam sein, wenn ein Angreifer von der schwachen Seite zum Korb schneidet.</li>
+    </ul>
+    <p><strong>Gemeinsame Bewegung:</strong> Geht der Ball nach rechts, verschieben sich die Positionen 1, 2 und 3 zur rechten Seite. Position 2 nimmt den Ballführer auf, Position 1 sichert die Mitte, Position 3 deckt Skip-Pässe ab. Position 5 hilft rechts in Korbnähe, Position 4 bereitet den Rebound vor.</p>
+    <p><strong>Vorteile:</strong> Bessere Ausgangsposition gegen Außenschützen als eine 2–3-Zone.<br><strong>Schwächen:</strong> Die Zone unter dem Korb ist anfällig gegen gute Post-Spieler und offensive Rebounder.</p>
+  </div>
+  <div class="card">
+    <h3>Zone 1–3–1</h3>
+    <p>Ein Spieler steht vorne, drei bilden die mittlere Linie, einer sichert hinten. Die Formation kann Druck auf den Ball erzeugen und Pässe an der Seitenlinie erschweren.</p>
+    <ul>
+      <li><strong>Position 1 (vorne):</strong> Stört den Spielaufbau und lenkt den Ballführer zur Seitenlinie.</li>
+      <li><strong>Positionen 2 und 4 (Seiten der mittleren Linie):</strong> Verteidigen die Flügel und schließen Passwege in die Ecken. Rücken bei einem Pass zum Flügel heraus.</li>
+      <li><strong>Position 3 (Mitte der mittleren Linie):</strong> Kontrolliert den High Post und den zentralen Passweg, reagiert auf Cuts, lässt die Zone aber nicht offen.</li>
+      <li><strong>Position 5 (hinten):</strong> Schützt den Korb, verteidigt Cuts hinter der Zone und sichert den Rebound. Muss die Mitspieler früh warnen.</li>
+    </ul>
+    <p><strong>Vorteile:</strong> Kann Ballverluste provozieren.<br><strong>Schwächen:</strong> Ecken, Grundlinie und offensive Rebounds sind gefährlich, wenn die Rotation nicht funktioniert. Erst einsetzen, wenn die Kommunikation zuverlässig ist.</p>
+  </div>
+
+  <h2>Pick-and-Roll-Defense</h2>
+  <div class="card">
+    <p><strong>Grundidee:</strong> Ein Spieler dribbelt, ein Mitspieler stellt einen Screen. Die Verteidigung muss verhindern, dass daraus ein freier Wurf oder ein einfacher Weg zum Korb wird. Vor dem Spiel sollte das Team festlegen, wie es Screens verteidigt.</p>
+    <h3>Variante A: Drop Coverage (der Center bleibt zurück)</h3>
+    <ol>
+      <li><strong>Verteidiger des Ballführers (Position 1):</strong> Kämpft sich über oder durch den Block zurück, bleibt so nah wie möglich am Ballführer und versucht, den Wurf zu erschweren.</li>
+      <li><strong>Verteidiger des Blockstellers (Position 5):</strong> Bleibt etwas tiefer in Richtung Korb, nimmt den Ballführer auf, falls er zieht, und verhindert den einfachen Korbleger, ohne sich zu weit aus der Zone ziehen zu lassen. Erholt sich zum rollenden Blocksteller, sobald Position 1 wieder am Ball ist.</li>
+      <li><strong>Verteidiger der Außenspieler (Positionen 2 und 3):</strong> Bleiben aufmerksam für Pässe zu freien Schützen, helfen kurz bei Durchbrüchen und schließen danach wieder zu ihren Gegnern auf.</li>
+      <li><strong>Verteidiger des zweiten großen Spielers (Position 4):</strong> Sichert den Pass zum rollenden Center ab, achtet auf offensive Rebounds und kehrt nach der Hilfe zu seiner Zuordnung zurück.</li>
+    </ol>
+    <p><strong>Vorteil:</strong> Der Korb ist besser geschützt. <strong>Nachteil:</strong> Der Ballführer kann zu einem freien Distanzwurf kommen, wenn der Verteidiger am Ball zu spät zurückkommt.</p>
+    <h3>Variante B: Hedge (der große Verteidiger tritt heraus)</h3>
+    <ol>
+      <li>Position 1 kämpft über den Block und bleibt am Ballführer.</li>
+      <li>Position 5 tritt kurz aus der Zone und stellt sich dem Ballführer in den Weg.</li>
+      <li>Position 5 verhindert den direkten Durchbruch, ohne zu lange draußen zu bleiben.</li>
+      <li>Position 1 schließt wieder auf und übernimmt den Ballführer.</li>
+      <li>Position 5 kehrt zu seinem Gegner zurück, der inzwischen rollt.</li>
+      <li>Die übrigen drei verschieben sich und sichern den Roll sowie freie Würfe ab.</li>
+    </ol>
+    <p><strong>Vorteil:</strong> Der Ballführer bekommt weniger Zeit und Raum. <strong>Nachteil:</strong> Bleibt Position 5 zu lange draußen, wird der rollende Angreifer frei.</p>
+    <h3>Variante C: Switch (die Verteidiger wechseln)</h3>
+    <ol>
+      <li>Position 1 verteidigt zunächst den Ballführer, Position 5 den Blocksteller.</li>
+      <li>Beim Block ruft einer der beiden laut „Switch!“.</li>
+      <li>Position 1 übernimmt den Blocksteller, Position 5 den Ballführer.</li>
+      <li>Beide stellen sich sofort auf die neue Zuordnung ein.</li>
+      <li>Die übrigen Verteidiger sichern mögliche Missmatches ab, ohne automatisch ebenfalls zu wechseln.</li>
+    </ol>
+    <p><strong>Vorteil:</strong> Unterbricht den Angriff schnell und ist leicht zu kommunizieren. <strong>Nachteil:</strong> Kleine Spieler können gegen große Innenspieler landen. Dafür braucht es eine klare Regel.</p>
+    <p><strong>Trainerregel:</strong> Nicht alle Varianten gleichzeitig spielen lassen. Zuerst eine Grundregel trainieren, zum Beispiel Drop, und später Alternativen ergänzen.</p>
+  </div>
+
+  <h2>Druckverteidigung: Press und Trap</h2>
+  <div class="card">
+    <h3>Full-Court Press (Ganzfelddruck)</h3>
+    <p><strong>Grundidee:</strong> Die Verteidigung setzt den Gegner bereits nach dem Einwurf über das ganze Feld unter Druck. Ziel: Zeit nehmen, den Ball an eine Seite lenken und Fehler erzwingen. Das kostet viel Kraft und sollte in der Jugend in kurzen, kontrollierten Abschnitten trainiert werden.</p>
+    <ol>
+      <li><strong>Position 1 (erster Verteidiger am Ball):</strong> Stellt sich dem Ballführer entgegen, lenkt ihn zur Seitenlinie und hält einen sicheren Abstand. Riskante Steals, die zu Fouls führen, vermeiden.</li>
+      <li><strong>Position 2 (erster Passverteidiger):</strong> Nimmt den nächsten Anspieler aus dem Zentrum des Passwegs, bleibt so, dass er Pässe abfangen kann, und kommuniziert, wenn der Ball über ihn hinweg gespielt wird.</li>
+      <li><strong>Position 3 (mittlere Absicherung):</strong> Kontrolliert den Raum hinter den ersten beiden, reagiert auf lange Pässe und lässt nie zwei Passwege gleichzeitig ungeschützt.</li>
+      <li><strong>Position 4 (Verteidiger des nächsten Angreifers):</strong> Kontrolliert den möglichen Anspieler in der Mitte, verschiebt sich mit dem Ball und hilft, wenn der Ballführer die erste Drucklinie überwindet.</li>
+      <li><strong>Position 5 (letzte Absicherung):</strong> Bleibt so tief, dass ein langer Pass nicht direkt zum Korbleger führt, und greift den Ball erst an, wenn die Absicherung steht.</li>
+    </ol>
+    <p><strong>Als Team:</strong> Beim Einwurf werden Passwege besetzt, nach jedem Pass sofort neu verschoben. Wird der Ball zur Seitenlinie gelenkt, wird der Raum dort verengt. Kommt der Ball durch die Mitte, sprinten die hinteren Verteidiger zurück. Kann der Gegner den Druck überwinden, geht die Mannschaft geordnet in die Halbfeldverteidigung.</p>
+    <h3>Half-Court Press (Druck über das halbe Feld)</h3>
+    <p>Die Verteidigung wartet, bis der Gegner einen bestimmten Bereich erreicht, und erhöht dort den Druck. Position 1 lenkt den Ballführer auf eine festgelegte Seite und gibt das Signal. Position 2 verteidigt den ersten Pass auf den Flügel. Position 3 sichert die Mitte und den Pass zur Gegenseite. Position 4 kontrolliert den Bereich zwischen Flügel und Zone. Position 5 schützt den Korb und verhindert einfache Abschlüsse, wenn ein Mitspieler ausgespielt wird. <strong>Schwäche:</strong> Ein schneller Pass durch die Mitte oder eine saubere Seitenverlagerung löst den Druck auf.</p>
+    <h3>Trap / Doppeln</h3>
+    <p><strong>Grundidee:</strong> Zwei Verteidiger setzen den Ballführer gemeinsam unter Druck, die drei übrigen sichern die Anspielstationen. Das funktioniert nur, wenn alle wissen, welche Passwege sie priorisieren.</p>
+    <ol>
+      <li><strong>Erster Verteidiger am Ball:</strong> Lenkt den Ballführer in den vereinbarten Bereich, etwa an die Seitenlinie, und verhindert das Zurückdribbeln in die Mitte. Hände aktiv, ohne in den Körper zu greifen.</li>
+      <li><strong>Zweiter Verteidiger:</strong> Kommt aus der festgelegten Help-Position, schließt den Weg nach vorne und vermeidet unnötigen Körperkontakt.</li>
+      <li><strong>Dritter Verteidiger:</strong> Sichert den wichtigsten Passweg in die Mitte und kommuniziert, welcher Passweg übernommen wird.</li>
+      <li><strong>Vierter Verteidiger:</strong> Sichert die Gegenseite und mögliche Skip-Pässe.</li>
+      <li><strong>Fünfter Verteidiger:</strong> Bleibt in Korbnähe, übernimmt den freien Angreifer in der Zone und bereitet den Rebound vor.</li>
+    </ol>
+    <p><strong>Doppeln, wenn:</strong> der Ballführer an der Seitenlinie oder in der Ecke festsitzt, schlecht kontrolliert oder mit dem Rücken zum Feld steht, und die Mitspieler die Passwege rechtzeitig besetzen können. <strong>Nicht doppeln, wenn:</strong> der Ballführer in der Mitte viel Platz hat, die Mitspieler weit auseinanderstehen oder der Korb nicht abgesichert ist.</p>
+  </div>
+
+  <h2>Einzelaktionen</h2>
+  <div class="card">
+    <h3>Deny Defense (den Pass verhindern)</h3>
+    <p>Ein Verteidiger macht es seinem Gegner schwer, den Ball überhaupt zu bekommen, besonders bei starken Schützen oder einem dominanten Spielmacher. Position 2 steht zwischen Ball und Gegner, hält eine Hand im Passweg und dreht sich bei einem Backdoor-Cut sofort um. Position 1 verteidigt den Ballführer direkt. Position 4 verhindert Anspiele an High und Low Post, Position 5 beobachtet Spieler, die von der schwachen Seite zum Korb schneiden. <strong>Schwäche:</strong> Zu aggressiv gespielt, öffnet die Deny Defense den Weg für Backdoor-Cuts. Der Verteidiger muss Ball und Gegner gleichzeitig sehen können.</p>
+    <h3>Closeout (den Wurf verhindern)</h3>
+    <ol>
+      <li><strong>Pass nach außen:</strong> Der zuständige Verteidiger sprintet sofort zum Empfänger.</li>
+      <li><strong>Abbremsen:</strong> Die letzten Schritte werden kürzer und kontrollierter, nicht ungebremst auf den Werfer zulaufen.</li>
+      <li><strong>Hand hoch:</strong> Eine Hand stört Sicht und Wurf, ohne den Angreifer zu berühren.</li>
+      <li><strong>Körper kontrollieren:</strong> In Balance bleiben, bereit für einen Drive.</li>
+      <li><strong>Lenken:</strong> Die Teamregel entscheidet, ob Mitte oder Grundlinie geschlossen wird.</li>
+      <li><strong>Hilfe:</strong> Die übrigen vier verschieben sich und sichern mögliche Drives.</li>
+      <li><strong>Ausboxen:</strong> Auch nach einem erschwerten Wurf ist der Closeout erst mit dem Rebound beendet.</li>
+    </ol>
+    <p><strong>Häufiger Fehler:</strong> Zu früh springen. Gute Schützen täuschen an, ziehen vorbei und bekommen einen freien Korbleger.</p>
+    <h3>Transition Defense (nach Ballverlust zurückverteidigen)</h3>
+    <p>Die ersten Sekunden nach einem Ballverlust entscheiden oft über einen einfachen Korb. Position 1 sprintet als erster zurück und verlangsamt den Ballführer, Position 2 übernimmt je nach Lage den Ballführer oder einen Flügel. Position 3 läuft so zurück, dass lange Pässe erschwert werden. Position 4 kontrolliert den gegnerischen großen Spieler, Position 5 schützt den direkten Weg zum Korb. <strong>Drei Prioritäten bei jedem Rücklauf:</strong> 1. Korb schützen. 2. Ballführer verlangsamen. 3. Freie Schützen und große Angreifer zuordnen. Trainerregel: Nach einem Ballverlust nicht stehen bleiben und reklamieren, sondern sofort zurücksprinten.</p>
+    <h3>Box-and-One</h3>
+    <p>Ein Verteidiger bleibt beim gefährlichsten Scorer, vier verteidigen eine Zone. Der Einzelverteidiger lässt den Schlüsselspieler nie unbeaufsichtigt und meldet Wechsel bei Screens. Die Zonenverteidiger dürfen sich nicht nur auf diesen Spieler konzentrieren. <strong>Vorteil:</strong> Ein dominanter Scorer bekommt deutlich weniger einfache Abschlüsse. <strong>Nachteil:</strong> Die übrigen Angreifer erhalten mehr Raum.</p>
+    <h3>Pack-Line</h3>
+    <p>Die Verteidiger ohne Ball stehen etwas näher an der Zone und helfen bei Durchbrüchen. Der Verteidiger am Ball bleibt vor dem Ballführer und lenkt den Angriff nach außen. Helfer schließen nach der Hilfe sofort wieder zum Schützen auf. Das ist eine sinnvolle Variante für Jugendmannschaften, die lernen sollen, als Einheit zu verteidigen. <strong>Schwäche:</strong> Wenn alle zu tief stehen, bekommen gute Schützen freie Würfe. Closeouts und Rückrotation müssen deshalb regelmäßig trainiert werden.</p>
+    <div class="source">Quelle: eigene Ausarbeitung, bitte Quelle ergänzen.</div>
+  </div>
+
+  <h2>Welche Defense passt?</h2>
+  <div class="card">
+    <div class="table-wrap"><table>
+      <tr><th>Situation</th><th>Geeignete Defense</th><th>Hauptziel</th></tr>
+      <tr><td>Grundlagen mit Jugendmannschaft</td><td>Mann-Mann</td><td>Verantwortung und Hilfe lernen</td></tr>
+      <tr><td>Gegner kommt ständig in die Zone</td><td>Zone 2–3 oder Pack-Line</td><td>Korb und Mitte schützen</td></tr>
+      <tr><td>Starke Distanzschützen</td><td>Zone 3–2 oder aggressive Mann-Mann</td><td>Außenwürfe erschweren</td></tr>
+      <tr><td>Dominanter Scorer</td><td>Box-and-One oder gezielte Mann-Mann</td><td>Abschlüsse erschweren</td></tr>
+      <tr><td>Viele Pick-and-Rolls</td><td>Drop, Hedge oder Switch</td><td>Ballführer und Blocksteller kontrollieren</td></tr>
+      <tr><td>Probleme im Spielaufbau</td><td>Full-Court Press oder Trap</td><td>Zeit nehmen, Ballverluste erzwingen</td></tr>
+      <tr><td>Schnelle Gegenangriffe</td><td>Gute Transition Defense</td><td>Einfache Korbleger verhindern</td></tr>
+      <tr><td>Freie Würfe nach Pässen</td><td>Closeouts und bessere Help Defense</td><td>Würfe erschweren, Rotationen verbessern</td></tr>
+    </table></div>
+  </div>
+
+</section>
+
+<section id="uebungen">
+  <h1>Übungen</h1>
+  <p class="muted">Vor jeder Einheit 10 bis 15 Minuten aufwärmen. Technik geht vor Tempo.</p>
+  <div class="hint">Tipp: Schon 10 Minuten am Tag bringen dich nach ein paar Wochen spürbar weiter. Dranbleiben ist wichtiger als lange Einheiten am Wochenende.</div>
+  <h2>Dribbling und Wurf</h2>
+  <div class="card">
+    <h3>Dribbling</h3>
+    <ul>
+      <li><strong>Stationäres Prellen:</strong> Hoch und niedrig, rechts und links, je 30 Sekunden.</li>
+      <li><strong>Crossover:</strong> Ball von einer Hand zur anderen vor dem Körper führen, zuerst im Stand, dann in Bewegung.</li>
+    </ul>
+    <h3>Wurf</h3>
+    <ul>
+      <li><strong>Einhandwurf aus der Nähe:</strong> Ellbogen unter dem Ball, Arm gerade nach oben, Handgelenk nach unten bewegen.</li>
+      <li><strong>Serie von 10 Würfen</strong> aus fünf Positionen. Zähle, wie viele treffen.</li>
+    </ul>
+  </div>
+  <h2>Stabilität, Kraft und Sprungkraft</h2>
+  <div class="card">
+    <h3>Körperstabilität</h3>
+    <ul>
+      <li><strong>Unterarmstütz (Plank):</strong> 3 Serien à 20 bis 40 Sekunden.</li>
+      <li><strong>Einbeinstand</strong> auf weicher Unterlage, 30 Sekunden pro Seite.</li>
+    </ul>
+    <h3>Kraft</h3>
+    <ul>
+      <li><strong>Kniebeugen:</strong> 3 Serien à 10 bis 12 Wiederholungen, saubere Ausführung.</li>
+      <li><strong>Ausfallschritte:</strong> 3 Serien à 8 bis 10 Wiederholungen pro Bein.</li>
+    </ul>
+    <h3>Sprungkraft</h3>
+    <ul>
+      <li><strong>Box Jumps oder Hocksprünge:</strong> 3 Serien à 6 bis 8 Sprünge mit Pausen.</li>
+      <li><strong>Sprünge aus dem Stand:</strong> Maximale Höhe, sauber landen und Knie beugen.</li>
+    </ul>
+  </div>
+  <div class="hint">Bei Vorerkrankungen, Verletzungen oder unsicherem Gefühl vorher mit einem Arzt oder Physiotherapeuten sprechen.</div>
+</section>
+
+<section id="coaching">
+  <h1>Coaching</h1>
+  <p class="muted">Gute Trainer entwickeln Spieler, nicht nur Spielzüge.</p>
+  <div class="grid">
+    <div class="card"><h3>Vorbild sein</h3><p>Pünktlichkeit, Respekt gegenüber Schiedsrichtern und Gegnern sowie ruhiges Auftreten prägen die Mannschaft.</p></div>
+    <div class="card"><h3>Klar erklären</h3><p>Ein Ziel pro Übung. Vormachen, kurz erklären, ausprobieren lassen und gezielt korrigieren.</p></div>
+    <div class="card"><h3>Positiv korrigieren</h3><p>Lob konkret, was gut war, und benenne dann eine einzige Verbesserung statt einer Liste von Fehlern.</p></div>
+    <div class="card"><h3>Verantwortung geben</h3><p>Lass Spieler auch im Training Entscheidungen treffen. Das stärkt Selbstständigkeit im Spiel.</p></div>
+  </div>
+  <h2>Teamkultur</h2>
+  <div class="card">
+    <ul>
+      <li>Rollen klar benennen, damit jeder weiß, was von ihm erwartet wird.</li>
+      <li>Spielzeit fair verteilen und Entscheidungen begründen.</li>
+      <li>Niederlagen auswerten, ohne Schuldige zu suchen.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="glossar">
+  <h1>Glossar</h1>
+  <p class="muted">Begriffe, die du in Videos, Kommentaren und auf dem Feld häufig hörst.</p>
+  <div class="grid">
+    <div class="card"><h3>Airball</h3><p>Ein Wurf, der den Ring komplett verfehlt und nur Luft trifft.</p></div>
+    <div class="card"><h3>Assist</h3><p>Der Pass, der direkt zu einem Korb führt. Der Passgeber bekommt die Vorlage gutgeschrieben.</p></div>
+    <div class="card"><h3>Block</h3><p>Ein Verteidiger wehrt einen Wurf ab, während der Ball schon auf dem Weg zum Korb ist.</p></div>
+    <div class="card"><h3>Brick</h3><p>Umgangssprachlich ein Fehlwurf, der an den Ring knallt und daneben geht.</p></div>
+    <div class="card"><h3>Crossover</h3><p>Ein schneller Wechsel des Balls von einer Hand in die andere, um den Gegner auszutricksen.</p></div>
+    <div class="card"><h3>Dunk</h3><p>Ein Wurf, bei dem der Ball von oben direkt in den Korb gedrückt wird.</p></div>
+    <div class="card"><h3>Fastbreak</h3><p>Ein schneller Gegenangriff nach einem Ballgewinn, bevor die Verteidigung steht.</p></div>
+    <div class="card"><h3>Layup</h3><p>Ein Korbleger aus nächster Nähe, meist über das Brett.</p></div>
+    <div class="card"><h3>Rebound</h3><p>Ein Ball, der nach einem verfehlten Wurf abprallt und eingefangen wird.</p></div>
+    <div class="card"><h3>Steal</h3><p>Ein Ballgewinn durch Abfangen eines Passes oder Dribblings.</p></div>
+    <div class="card"><h3>Turnover</h3><p>Ein Ballverlust, zum Beispiel durch einen Fehlpass oder einen Schrittfehler.</p></div>
+    <div class="card"><h3>Buzzer Beater</h3><p>Ein Wurf, der kurz vor Ende der Zeit fällt und den Sieg bringt.</p></div>
+  </div>
+</section>
+
+<section id="shop">
+  <h1>Shop</h1>
+  <p class="muted">Neutrale Suchlinks zu Basketball-Artikeln. Preise und Verfügbarkeit findest du direkt beim Händler.</p>
+  <div class="grid">
+    <div class="card"><h3>Basketbälle</h3><p><a href="https://www.amazon.de/s?k=basketball+ball" target="_blank" rel="noopener">Bälle suchen</a></p></div>
+    <div class="card"><h3>Basketballschuhe</h3><p><a href="https://www.amazon.de/s?k=basketballschuhe" target="_blank" rel="noopener">Schuhe suchen</a></p></div>
+    <div class="card"><h3>Trikots</h3><p><a href="https://www.amazon.de/s?k=basketball+trikot" target="_blank" rel="noopener">Trikots suchen</a></p></div>
+    <div class="card"><h3>Fanartikel NBA</h3><p><a href="https://www.amazon.de/s?k=NBA+fanartikel" target="_blank" rel="noopener">NBA-Artikel suchen</a></p></div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <p>Inhalte ohne Gewähr. Bitte Regeln bei offiziellen Quellen prüfen: FIBA (fiba.basketball), DBB (dbb.de), BBL (easycredit-bbl.de).</p>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('nav button');
+  var sections = document.querySelectorAll('section');
+  function show(id){
+    sections.forEach(function(s){ s.classList.toggle('active', s.id === id); });
+    buttons.forEach(function(b){ b.classList.toggle('active', b.dataset.target === id); });
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.target); }); });
+})();
+</script>
+</body>
+</html>
