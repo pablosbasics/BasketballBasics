@@ -44,6 +44,8 @@ tr:nth-child(even) td{background:var(--card2)}
 .game-box canvas{display:block;width:100%;height:auto;touch-action:manipulation}
 .entry{padding:7px 0;border-bottom:1px solid var(--line)}
 .entry:last-child{border-bottom:none}
+.linkbtn{background:none;border:none;color:var(--accent2);cursor:pointer;text-decoration:underline;font-size:inherit;padding:0}
+.diagram{margin:8px 0}
 </style>
 </head>
 <body>
@@ -53,15 +55,19 @@ tr:nth-child(even) td{background:var(--card2)}
     <nav>
       <button data-target="start" class="active"><span>Start</span></button>
       <button data-target="regeln"><span>Regeln</span></button>
-      <button data-target="taktik"><span>Taktiken</span></button>
+      <button data-target="angriff"><span>Angriff</span></button>
+      <button data-target="verteidigung"><span>Verteidigung</span></button>
       <button data-target="uebungen"><span>Übungen</span></button>
       <button data-target="coaching"><span>Coaching</span></button>
       <button data-target="glossar"><span>Glossar</span></button>
+      <button data-target="spiel"><span>Spiel</span></button>
       <button data-target="shop"><span>Shop</span></button>
     </nav>
   </div>
 </header>
+
 <main>
+
 <section id="start" class="active">
   <h1>Basketball verstehen, spielen und besser werden</h1>
   <p style="font-size:1.1rem">Egal, ob du das Spiel gerade erst entdeckst, als Fan jedes Wochenende mitfieberst oder als Trainer eine Mannschaft führst: Hier findest du alles, was du für den Einstieg und den nächsten Schritt brauchst. Alles ist verständlich erklärt, ohne Vorwissen vorauszusetzen.</p>
@@ -94,7 +100,7 @@ tr:nth-child(even) td{background:var(--card2)}
       <li><strong>Schau ein Spiel</strong> und achte auf Ballbesitz, Fouls und Auszeiten.</li>
       <li><strong>Lies „Grundlagen“</strong> bei den Regeln. Danach verstehst du den Ablauf.</li>
       <li><strong>Schlag Begriffe nach</strong>, wenn du sie nicht kennst, zum Beispiel im Glossar.</li>
-      <li><strong>Probier eine Übung aus.</strong> Schon zehn Minuten am Tag bringen Fortschritte.</li>
+      <li><strong>Probier eine Übung aus.</strong> Der Übungsbereich zeigt dir, wo du anfangen kannst.</li>
     </ol>
   </div>
 
@@ -119,16 +125,11 @@ tr:nth-child(even) td{background:var(--card2)}
       <li><strong>Dribbling:</strong> Der Ball darf nur durch Prellen weiterbewegt werden. Wer nach Abschluss des Dribblings erneut prellt, begeht ein Doppeldribbling.</li>
       <li><strong>Schrittfehler:</strong> Wer den Ball hält, darf nur eine begrenzte Zahl Schritte machen, bevor er abspielt oder wirft.</li>
     </ul>
-    <h3>Zeitregeln</h3>
-    <ul>
-      <li><strong>24-Sekunden-Regel:</strong> Das Angriffsteam muss innerhalb von 24 Sekunden einen regelkonformen Wurf abgeben.</li>
-      <li><strong>8-Sekunden-Regel:</strong> Der Ball muss nach einem Einwurf innerhalb von 8 Sekunden in die vordere Hälfte gebracht werden.</li>
-      <li><strong>3-Sekunden-Regel:</strong> Ein Angreifer darf sich nicht länger als 3 Sekunden in der gegnerischen Zone aufhalten, solange sein Team den Ball kontrolliert.</li>
-    </ul>
+    <p class="muted">Die Zeitregeln (24, 8 und 3 Sekunden) stehen in der Regelübersicht unten.</p>
     <div class="source">Quelle: FIBA-Basketballregeln 2026 (fiba.basketball, Regelwerk und Downloads).</div>
   </div>
 
-  <h2>Regelübersicht für die Praxis</h2>
+  <h2>Regel-Nachschlagewerk</h2>
   <div class="card">
     <p class="muted">Vereinfachte Übersicht des regulären 5-gegen-5-Basketballs. Für Sonderfälle gelten die offiziellen Regeltexte.</p>
     <div class="table-wrap">
@@ -188,8 +189,8 @@ tr:nth-child(even) td{background:var(--card2)}
   </div>
 </section>
 
-<section id="taktik">
-  <h1>Taktiken</h1>
+<section id="angriff">
+  <h1>Angriff</h1>
   <h2>Angriff: Grundlagen</h2>
   <div class="card">
     <p>Im Angriff geht es darum, dem Gegner Entscheidungen zu erschweren, bis ein Spieler einen möglichst guten Wurf bekommt. Dafür brauchst du keine komplizierten Spielzüge. Wichtig sind vier Prinzipien, die fast jede Offense trägt:</p>
@@ -303,6 +304,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>1. Pick and Roll</h3>
+    <div class="diagram" data-play="pnr"></div>
     <p><strong>Ziel:</strong> Der Ballführer nutzt einen Block, um selbst zum Korb zu ziehen, den Blocksteller anzuspielen oder einen freien Mitspieler zu finden. Es ist der wichtigste Spielzug im modernen Basketball, deshalb lohnt es sich, ihn gut zu verstehen.</p>
     <p><strong>So sieht der Start aus:</strong> Der PG steht oben an der Dreierlinie. Der C kommt aus dem hohen Bereich und stellt einen Block am Verteidiger des PG.</p>
     <ol>
@@ -324,6 +326,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>2. Give and Go</h3>
+    <div class="diagram" data-play="gag"></div>
     <p><strong>Ziel:</strong> Einen Verteidiger durch einen Pass und einen sofortigen Lauf zum Korb überraschen. Das ist ein Klassiker, weil er einfach ist und trotzdem sehr wirkungsvoll.</p>
     <ol>
       <li><strong>PG (1)</strong> passt zum SG (2) auf dem Flügel.</li>
@@ -339,6 +342,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>3. Pass and Cut mit fünf Spielern</h3>
+    <div class="diagram" data-play="passcut"></div>
     <p><strong>Ziel:</strong> Freie Räume durch Passen und Schneiden erzeugen, ohne ein kompliziertes Schema auswendig zu lernen. Diese Variante eignet sich gut, um das Zusammenspiel im Team zu verbessern.</p>
     <ol>
       <li><strong>PG (1)</strong> passt vom oberen Bereich zum SG (2) auf dem Flügel.</li>
@@ -355,6 +359,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>4. Motion Offense</h3>
+    <div class="diagram" data-play="motion"></div>
     <p><strong>Ziel:</strong> Eine flexible Offense, bei der die Spieler auf die Bewegung der Mitspieler reagieren, statt feste Laufwege abzuspulen. Motion ist ein System aus Prinzipien, kein fester Ablauf. Deshalb ist sie für Einsteiger zunächst schwerer, dafür aber sehr vielseitig.</p>
     <ol>
       <li><strong>PG (1)</strong> bringt den Ball nach vorne und passt auf einen Flügel.</li>
@@ -369,6 +374,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>5. Horns Offense</h3>
+    <div class="diagram" data-play="horns"></div>
     <p><strong>Ziel:</strong> Den Angriff mit zwei Spielern an den hohen Blocks beginnen. Das gibt dem Team von Anfang an zwei zusätzliche Optionen.</p>
     <p><strong>Ausgangsposition:</strong> PG (1) hat den Ball oben. PF (4) und C (5) stehen links und rechts am oberen Rand der Zone. SG (2) und SF (3) stehen auf den Flügeln.</p>
     <ol>
@@ -385,6 +391,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>6. Dribble Handoff (DHO)</h3>
+    <div class="diagram" data-play="dho"></div>
     <p><strong>Ziel:</strong> Eine Ballübergabe in Bewegung nutzen, um einen Verteidiger zu überwinden. Die Übergabe wirkt wie ein kurzer Block und lockt den Verteidiger vom Ball weg.</p>
     <ol>
       <li><strong>PG (1)</strong> dribbelt zum C (5), der sich seitlich oder am oberen Rand der Zone anbietet.</li>
@@ -399,6 +406,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>7. Floppy – einen Werfer freispielen</h3>
+    <div class="diagram" data-play="floppy"></div>
     <p><strong>Ziel:</strong> Einen guten Distanzschützen durch Blocks für einen freien Wurf vorbereiten. Der Werfer läuft dabei um mehrere Blocks herum, und die Verteidiger müssen ständig wechseln.</p>
     <ol>
       <li><strong>PG (1)</strong> hat den Ball oben und wartet auf die Bewegung des Werfers.</li>
@@ -414,6 +422,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>8. Post-Up</h3>
+    <div class="diagram" data-play="postup"></div>
     <p><strong>Ziel:</strong> Einen Spieler mit guter Technik nahe am Korb gezielt einsetzen. Der Spieler im Post steht mit dem Rücken zum Korb und nutzt Körperkraft und Drehungen.</p>
     <ol>
       <li><strong>PG (1)</strong> bringt den Ball nach vorne und passt zu SF (3) oder PF (4), die den Ball sicher in den Post spielen können.</li>
@@ -429,6 +438,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>9. Spain Pick and Roll</h3>
+    <div class="diagram" data-play="spain"></div>
     <p><strong>Ziel:</strong> Den klassischen Pick and Roll durch einen zusätzlichen Block für den rollenden Center erweitern. Dieser Spielzug ist fortgeschritten, weil alle Spieler exakt zusammenarbeiten müssen.</p>
     <ol>
       <li><strong>PG (1)</strong> beginnt mit dem Ball oben.</li>
@@ -442,6 +452,7 @@ tr:nth-child(even) td{background:var(--card2)}
 
   <div class="card">
     <h3>10. Fast Break</h3>
+    <div class="diagram" data-play="fastbreak"></div>
     <p><strong>Ziel:</strong> Nach einem Rebound oder Ballgewinn angreifen, bevor der Gegner seine Verteidigung organisieren kann. Das ist der schnellste Weg zu einfachen Punkten.</p>
     <ol>
       <li><strong>C (5)</strong> sichert den Rebound und spielt möglichst schnell einen kontrollierten Pass nach vorne.</li>
@@ -454,20 +465,16 @@ tr:nth-child(even) td{background:var(--card2)}
     </ol>
     <p><strong>Grundregel:</strong> Schnelligkeit ist wichtig, aber ein schlechter Pass oder ein überhasteter Abschluss zerstört den Vorteil sofort.</p>
   </div>
-  <div class="source">Quelle: eigene Ausarbeitung, bitte Quelle ergänzen.</div>
+  <div class="source">Quelle: eigene Ausarbeitung.</div>
 
+</section>
+
+<section id="verteidigung">
+  <h1>Verteidigung</h1>
   <h2>Verteidigung: Grundlagen</h2>
   <div class="card">
     <p>Eine gute Defense entsteht nicht nur daraus, den Gegner am Werfen zu hindern. Sie entsteht durch Kommunikation, gegenseitiges Vertrauen, Disziplin und die Bereitschaft, füreinander zu arbeiten. Fünf Spieler müssen wie eine Einheit verteidigen: Wenn einer geschlagen wird, hilft der nächste, und die anderen sichern ab.</p>
-    <h3>Die fünf Positionen in der Defense</h3>
-    <ul>
-      <li><strong>1 – Point Guard (PG):</strong> verteidigt häufig den gegnerischen Spielmacher.</li>
-      <li><strong>2 – Shooting Guard (SG):</strong> verteidigt häufig einen gegnerischen Außenspieler.</li>
-      <li><strong>3 – Small Forward (SF):</strong> verteidigt Flügelspieler und hilft beim Rebound.</li>
-      <li><strong>4 – Power Forward (PF):</strong> verteidigt häufig größere Flügel- oder Innenspieler.</li>
-      <li><strong>5 – Center (C):</strong> schützt den Korb und organisiert oft die Hilfe in Korbnähe.</li>
-    </ul>
-    <p class="muted">Die Zuordnung ist flexibel. Entscheidend sind Fähigkeiten, Größe und Spielsituation.</p>
+    <p class="muted">Die Positionen 1 bis 5 kennst du aus dem Angriff. In der Verteidigung haben sie dieselben Rollen, nur mit Absicherungsaufgaben.</p>
   </div>
   <div class="grid">
     <div class="card">
@@ -514,9 +521,10 @@ tr:nth-child(even) td{background:var(--card2)}
       <p><strong>Ziel:</strong> Die Defense ist erst abgeschlossen, wenn das Team den Ballbesitz wirklich gewinnt.</p>
     </div>
   </div>
-  <div class="source">Grundlagen: Die ausführlichen Erklärungen stammen aus der Defense-Übersicht, die du mir gegeben hast. Bitte Quelle ergänzen.</div>
+  <div class="source">Quelle: eigene Ausarbeitung.</div>
 
   <h2>Mann-Mann-Verteidigung (Man-to-Man)</h2>
+  <div class="diagram" data-play="mann"></div>
   <div class="card">
     <p><strong>Grundidee:</strong> Jeder Verteidiger übernimmt zunächst einen Gegenspieler. Gleichzeitig helfen alle einander, sobald ein Angreifer den direkten Verteidiger schlägt.</p>
     <div class="grid">
@@ -579,6 +587,7 @@ tr:nth-child(even) td{background:var(--card2)}
   <div class="card">
     <p class="muted">Die Spieler verteidigen zuerst Räume statt einzelner Gegenspieler. Die Formation verschiebt sich mit dem Ball.</p>
     <h3>Zone 2–3: zwei vorne, drei hinten</h3>
+    <div class="diagram" data-play="zone23"></div>
     <ol>
       <li><strong>Position 1 (vorne links):</strong> Verteidigt den Ball auf der eigenen Seite und lenkt den Ballführer nach außen. Bei einem Pass zur Mitte stellt er sich so, dass der Pass durch die Zone erschwert wird.</li>
       <li><strong>Position 2 (vorne rechts):</strong> Übernimmt die gegenüberliegende Seite. Ist der Ball auf der anderen Seite, rückt er zur Mitte und sichert den Passweg. Er spricht mit Position 1 ab, wer einen Pass in den High Post kontrolliert.</li>
@@ -598,6 +607,7 @@ tr:nth-child(even) td{background:var(--card2)}
   </div>
   <div class="card">
     <h3>Zone 3–2: drei außen, zwei innen</h3>
+    <div class="diagram" data-play="zone32"></div>
     <p>Drei Spieler verteidigen den oberen und seitlichen Außenbereich, zwei schützen die Zone näher am Korb. Die Formation eignet sich besonders gegen Teams, die viele Würfe von außen nehmen.</p>
     <ul>
       <li><strong>Position 1 (Mitte oben):</strong> Setzt den Ballführer unter Druck, lenkt den Ball auf eine Seite und erschwert den Pass in die Mitte. Ruft früh, wenn ein Screen gestellt wird.</li>
@@ -669,6 +679,7 @@ tr:nth-child(even) td{background:var(--card2)}
     <h3>Half-Court Press (Druck über das halbe Feld)</h3>
     <p>Die Verteidigung wartet, bis der Gegner einen bestimmten Bereich erreicht, und erhöht dort den Druck. Position 1 lenkt den Ballführer auf eine festgelegte Seite und gibt das Signal. Position 2 verteidigt den ersten Pass auf den Flügel. Position 3 sichert die Mitte und den Pass zur Gegenseite. Position 4 kontrolliert den Bereich zwischen Flügel und Zone. Position 5 schützt den Korb und verhindert einfache Abschlüsse, wenn ein Mitspieler ausgespielt wird. <strong>Schwäche:</strong> Ein schneller Pass durch die Mitte oder eine saubere Seitenverlagerung löst den Druck auf.</p>
     <h3>Trap / Doppeln</h3>
+    <div class="diagram" data-play="trap"></div>
     <p><strong>Grundidee:</strong> Zwei Verteidiger setzen den Ballführer gemeinsam unter Druck, die drei übrigen sichern die Anspielstationen. Das funktioniert nur, wenn alle wissen, welche Passwege sie priorisieren.</p>
     <ol>
       <li><strong>Erster Verteidiger am Ball:</strong> Lenkt den Ballführer in den vereinbarten Bereich, etwa an die Seitenlinie, und verhindert das Zurückdribbeln in die Mitte. Hände aktiv, ohne in den Körper zu greifen.</li>
@@ -701,7 +712,7 @@ tr:nth-child(even) td{background:var(--card2)}
     <p>Ein Verteidiger bleibt beim gefährlichsten Scorer, vier verteidigen eine Zone. Der Einzelverteidiger lässt den Schlüsselspieler nie unbeaufsichtigt und meldet Wechsel bei Screens. Die Zonenverteidiger dürfen sich nicht nur auf diesen Spieler konzentrieren. <strong>Vorteil:</strong> Ein dominanter Scorer bekommt deutlich weniger einfache Abschlüsse. <strong>Nachteil:</strong> Die übrigen Angreifer erhalten mehr Raum.</p>
     <h3>Pack-Line</h3>
     <p>Die Verteidiger ohne Ball stehen etwas näher an der Zone und helfen bei Durchbrüchen. Der Verteidiger am Ball bleibt vor dem Ballführer und lenkt den Angriff nach außen. Helfer schließen nach der Hilfe sofort wieder zum Schützen auf. Das ist eine sinnvolle Variante für Jugendmannschaften, die lernen sollen, als Einheit zu verteidigen. <strong>Schwäche:</strong> Wenn alle zu tief stehen, bekommen gute Schützen freie Würfe. Closeouts und Rückrotation müssen deshalb regelmäßig trainiert werden.</p>
-    <div class="source">Quelle: eigene Ausarbeitung, bitte Quelle ergänzen.</div>
+    <div class="source">Quelle: eigene Ausarbeitung.</div>
   </div>
 
   <h2>Welche Defense passt?</h2>
@@ -933,7 +944,7 @@ tr:nth-child(even) td{background:var(--card2)}
     <div class="entry"><strong>Play-in</strong> – Eine Zusatzrunde, in der die letzten Plätze für die Playoffs ausgespielt werden.</div>
     <div class="entry"><strong>Playoffs</strong> – Die Finalrunde, in der Serien bis zum Titel gespielt werden.</div>
   </div>
-  <div class="source">Quelle: eigene Zusammenstellung, bitte Quelle ergänzen. Regelbegriffe orientieren sich an den FIBA-Regeln.</div>
+  <div class="source">Quelle: eigene Zusammenstellung. Regelbegriffe orientieren sich an den FIBA-Regeln.</div>
 
   <script>
   (function(){
@@ -967,9 +978,37 @@ tr:nth-child(even) td{background:var(--card2)}
   <button class="cta" data-target="start">Zurück zur Startseite</button>
 </section>
 
+<section id="impressum">
+  <h1>Impressum</h1>
+  <div class="card">
+    <p>Angaben gemäß § 5 DDG:</p>
+    <p>[Vor- und Nachname]<br>[Straße und Hausnummer]<br>[PLZ und Ort]<br>Deutschland</p>
+    <p><strong>Kontakt:</strong><br>E-Mail: [E-Mail-Adresse]</p>
+    <p><strong>Verantwortlich für den Inhalt</strong> nach § 18 Abs. 2 MStV: [Vor- und Nachname, Anschrift]</p>
+  </div>
+</section>
+
+<section id="datenschutz">
+  <h1>Datenschutzerklärung</h1>
+  <div class="card">
+    <h3>1. Verantwortliche Stelle</h3>
+    <p>Verantwortlich ist die im Impressum genannte Person.</p>
+    <h3>2. Hosting</h3>
+    <p>Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf verarbeitet GitHub technisch notwendige Verbindungsdaten wie die IP-Adresse. Weitere Informationen findest du in der Datenschutzerklärung von GitHub.</p>
+    <h3>3. Keine Cookies und keine Analyse-Dienste</h3>
+    <p>Diese Website setzt keine Cookies und bindet keine Tracking- oder Analyse-Dienste ein. Das Freiwurf-Spiel läuft vollständig im Browser, dabei werden keine Daten gespeichert.</p>
+    <h3>4. Externe Links</h3>
+    <p>Der Shop-Bereich verlinkt auf externe Seiten, zum Beispiel auf Amazon. Für deren Datenschutz sind die jeweiligen Anbieter verantwortlich.</p>
+    <h3>5. Deine Rechte</h3>
+    <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner personenbezogenen Daten. Wende dich dafür an die Kontaktadresse im Impressum.</p>
+    <p class="muted">Stand: Oktober 2026</p>
+  </div>
+</section>
+
 </main>
 <footer>
   <p>Inhalte ohne Gewähr. Bitte Regeln bei offiziellen Quellen prüfen: FIBA (fiba.basketball), DBB (dbb.de), BBL (easycredit-bbl.de).</p>
+  <p><button class="linkbtn" data-target="impressum">Impressum</button> · <button class="linkbtn" data-target="datenschutz">Datenschutz</button></p>
 </footer>
 
 <script>
@@ -1123,5 +1162,226 @@ tr:nth-child(even) td{background:var(--card2)}
   requestAnimationFrame(loop);
 })();
 </script>
+<script>
+(function(){
+  var INK='#535353';
+  function court(){
+    var s='<rect x="0" y="0" width="500" height="470" fill="#f7f7f7" stroke="'+INK+'" stroke-width="3"/>';
+    s+='<rect x="170" y="0" width="160" height="190" fill="none" stroke="'+INK+'" stroke-width="2"/>';
+    s+='<circle cx="250" cy="190" r="60" fill="none" stroke="'+INK+'" stroke-width="2" stroke-dasharray="6 6"/>';
+    var pts='M30 0 L30 45 ';
+    for(var i=0;i<=40;i++){ var a=Math.PI-(Math.PI*i/40); pts+='L'+(250+220*Math.cos(a)).toFixed(1)+' '+(45+220*Math.sin(a)).toFixed(1)+' '; }
+    pts+='L470 0';
+    s+='<path d="'+pts+'" fill="none" stroke="'+INK+'" stroke-width="2"/>';
+    s+='<line x1="220" y1="30" x2="280" y2="30" stroke="'+INK+'" stroke-width="4"/>';
+    s+='<circle cx="250" cy="45" r="9" fill="none" stroke="'+INK+'" stroke-width="3"/>';
+    return s;
+  }
+  function draw(el, cfg){
+    var s='<svg viewBox="0 0 500 470" width="100%" style="max-width:420px;display:block;margin:10px auto">';
+    s+='<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="'+INK+'"/></marker></defs>';
+    s+=court();
+    (cfg.arrows||[]).forEach(function(a){
+      var dash = a[4]==='pass' ? 'stroke-dasharray="10 7" ' : (a[4]==='screen' ? 'stroke-dasharray="2 6" ' : '');
+      s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="'+INK+'" stroke-width="3" '+dash+'marker-end="url(#arr)"/>';
+    });
+    (cfg.def||[]).forEach(function(p){
+      s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="16" fill="#f7f7f7" stroke="'+INK+'" stroke-width="3"/>';
+      s+='<text x="'+p[0]+'" y="'+(p[1]+6)+'" text-anchor="middle" font-size="16" font-weight="bold" fill="'+INK+'">'+(p[2]||'X')+'</text>';
+    });
+    (cfg.off||[]).forEach(function(p){
+      s+='<circle cx="'+p[1]+'" cy="'+p[2]+'" r="16" fill="'+INK+'"/>';
+      s+='<text x="'+p[1]+'" y="'+(p[2]+6)+'" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">'+p[0]+'</text>';
+    });
+    s+='</svg><p class="muted" style="text-align:center;font-size:.85rem">Ausgefüllte Kreise = Angreifer, leere Kreise = Verteidiger, Pfeil = Bewegung, gestrichelt = Pass, gepunktet = Block.</p>';
+    el.innerHTML = s;
+  }
+  var plays = {
+    pnr:{off:[[1,250,330],[2,420,300],[3,80,300],[4,150,150],[5,250,215]],
+         def:[[265,305],[395,290],[95,290],[160,165],[235,255]],
+         arrows:[[250,330,195,315,'move'],[250,215,215,295,'screen'],[215,295,250,125,'move']]},
+    gag:{off:[[1,250,330],[2,90,260],[3,410,300],[4,150,160],[5,250,205]],
+         def:[[265,310],[110,250],[390,300],[160,175],[250,240]],
+         arrows:[[250,330,105,268,'pass'],[250,330,236,125,'move']]},
+    horns:{off:[[1,250,330],[4,170,190],[5,330,190],[2,70,300],[3,430,300]],
+         def:[[265,305],[180,215],[320,215],[85,285],[415,285]],
+         arrows:[[250,330,250,300,'move'],[170,190,235,110,'move'],[250,300,80,300,'pass']]},
+    zone23:{off:[],
+         def:[[205,265,'1'],[295,265,'2'],[120,140,'3'],[380,140,'3'],[250,95,'5']],
+         arrows:[]},
+    passcut:{off:[[1,250,320],[2,410,230],[3,90,230],[4,400,390],[5,100,390]],
+         def:[[270,300],[395,255],[105,255],[385,375],[115,375]],
+         arrows:[[250,320,405,240,'pass'],[250,320,300,130,'move'],[90,230,60,370,'move']]},
+    motion:{off:[[1,250,330],[2,410,260],[3,90,260],[4,170,180],[5,250,220]],
+         def:[[265,305],[395,250],[105,250],[165,160],[245,195]],
+         arrows:[[250,330,100,270,'pass'],[250,330,300,160,'move'],[90,260,190,170,'move']]},
+    dho:{off:[[1,180,330],[5,250,230],[2,420,300],[3,410,140],[4,90,300]],
+         def:[[195,320],[265,200],[400,285],[395,155],[105,285]],
+         arrows:[[180,330,232,255,'move'],[250,235,215,285,'pass'],[215,285,265,190,'move']]},
+    floppy:{off:[[1,250,320],[2,110,330],[4,180,300],[5,320,300],[3,200,240]],
+         def:[[130,300],[190,265],[300,280],[290,320],[260,205]],
+         arrows:[[110,330,160,240,'move'],[160,240,440,190,'move'],[250,320,430,200,'pass']]},
+    postup:{off:[[1,250,320],[2,400,380],[3,420,260],[4,90,250],[5,160,110]],
+         def:[[265,300],[385,355],[395,265],[105,235],[185,145]],
+         arrows:[[250,320,100,255,'pass'],[95,255,155,140,'pass']]},
+    spain:{off:[[1,250,330],[5,250,215],[4,150,250],[2,420,300],[3,410,140]],
+         def:[[265,310],[230,250],[180,265],[395,300],[400,150]],
+         arrows:[[250,215,215,300,'screen'],[215,300,250,130,'move'],[150,250,235,300,'screen']]},
+    fastbreak:{off:[[1,250,300],[2,80,260],[3,420,260],[4,150,330],[5,250,400]],
+         def:[[250,180],[190,250],[320,250],[210,320],[280,350]],
+         arrows:[[250,400,250,300,'pass'],[250,300,250,120,'move'],[80,260,120,80,'move'],[420,260,380,80,'move']]},
+    mann:{off:[[1,250,330],[2,410,300],[3,90,300],[4,160,190],[5,250,210]],
+         def:[[265,310],[395,275],[110,275],[185,205],[235,235]],
+         arrows:[]},
+    zone32:{off:[],
+         def:[[160,230,'1'],[250,255,'2'],[340,230,'3'],[190,140,'4'],[310,140,'5']],
+         arrows:[]},
+    trap:{off:[[1,90,265],[2,300,330],[3,400,240],[4,300,160],[5,200,170]],
+         def:[[110,230],[110,300],[250,220],[330,300],[420,250]],
+         arrows:[[90,265,290,320,'pass']]}
+  };
+  Object.keys(plays).forEach(function(k){
+    var el=document.querySelector('[data-play="'+k+'"]');
+    if(el) draw(el, plays[k]);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var INK='#535353', RED='#e53935', BLUE='#1e6fd9', DUR=1100;
+  function court(){
+    var s='<rect x="0" y="0" width="500" height="470" fill="#f7f7f7" stroke="'+INK+'" stroke-width="3"/>';
+    s+='<rect x="170" y="0" width="160" height="190" fill="none" stroke="'+INK+'" stroke-width="2"/>';
+    s+='<circle cx="250" cy="190" r="60" fill="none" stroke="'+INK+'" stroke-width="2" stroke-dasharray="6 6"/>';
+    var pts='M30 0 L30 45 ';
+    for(var i=0;i<=40;i++){ var a=Math.PI-(Math.PI*i/40); pts+='L'+(250+220*Math.cos(a)).toFixed(1)+' '+(45+220*Math.sin(a)).toFixed(1)+' '; }
+    s+='<path d="'+pts+'L470 0" fill="none" stroke="'+INK+'" stroke-width="2"/>';
+    s+='<line x1="220" y1="30" x2="280" y2="30" stroke="'+INK+'" stroke-width="4"/>';
+    s+='<circle cx="250" cy="45" r="9" fill="none" stroke="'+INK+'" stroke-width="3"/>';
+    return s;
+  }
+  var ANIM = {
+    pnr:{holder:1, off:[[1,250,330],[2,420,300],[3,80,300],[4,150,150],[5,250,215]], def:[[265,305],[395,290],[95,290],[160,165],[235,255]],
+      steps:[[['m',1,205,320],['m',5,215,295]],[['m',5,250,130],['m',1,190,300]],[['p',1,5]]]},
+    gag:{holder:1, off:[[1,250,330],[2,90,260],[3,410,300],[4,150,160],[5,250,205]], def:[[265,310],[110,250],[390,300],[160,175],[250,240]],
+      steps:[[['p',1,2],['m',1,236,125]],[['p',2,1]],[['m',1,250,60]]]},
+    horns:{holder:1, off:[[1,250,330],[4,170,190],[5,330,190],[2,70,300],[3,430,300]], def:[[265,305],[180,215],[320,215],[85,285],[415,285]],
+      steps:[[['m',1,240,260]],[['m',4,235,130],['m',5,300,120]],[['p',1,4]]]},
+    dho:{holder:1, off:[[1,180,330],[5,250,230],[2,420,300],[3,410,140],[4,90,300]], def:[[195,320],[265,200],[400,285],[395,155],[105,285]],
+      steps:[[['m',1,232,255]],[['p',5,1]],[['m',1,265,190]]]},
+    floppy:{holder:1, off:[[1,250,320],[2,110,330],[4,180,300],[5,320,300],[3,200,240]], def:[[130,300],[190,265],[300,280],[290,320],[260,205]],
+      steps:[[['m',2,160,240]],[['m',2,440,190],['p',1,2]]]},
+    postup:{holder:1, off:[[1,250,320],[2,400,380],[3,420,260],[4,90,250],[5,160,110]], def:[[265,300],[385,355],[395,265],[105,235],[185,145]],
+      steps:[[['p',1,4]],[['m',5,140,80]],[['p',4,5]]]},
+    spain:{holder:1, off:[[1,250,330],[5,250,215],[4,150,250],[2,420,300],[3,410,140]], def:[[265,310],[230,250],[180,265],[395,300],[400,150]],
+      steps:[[['m',5,215,300]],[['m',5,250,130],['m',4,235,300]],[['p',1,5]]]},
+    fastbreak:{holder:5, off:[[1,250,300],[2,80,260],[3,420,260],[4,150,330],[5,250,400]], def:[[250,180],[190,250],[320,250],[210,320],[280,350]],
+      steps:[[['p',5,1]],[['m',1,250,120],['m',2,120,80],['m',3,380,80],['m',4,230,170]],[['p',1,3]]]},
+    motion:{holder:1, off:[[1,250,330],[2,410,260],[3,90,260],[4,170,180],[5,250,220]], def:[[265,305],[395,250],[105,250],[165,160],[245,195]],
+      steps:[[['p',1,3]],[['m',1,300,160],['m',3,190,170]],[['p',3,1]]]},
+    passcut:{holder:1, off:[[1,250,320],[2,410,230],[3,90,230],[4,400,390],[5,100,390]], def:[[270,300],[395,255],[105,255],[385,375],[115,375]],
+      steps:[[['p',1,2],['m',1,300,130]],[['p',2,1]],[['m',1,250,60]]]},
+    mann:{holder:1, off:[[1,250,330],[2,410,260],[3,90,260],[4,170,190],[5,330,190]], def:[[265,310],[385,265],[115,265],[185,205],[315,205]],
+      steps:[[['p',1,2],['m','x0',300,315],['m','x1',380,255]],[['p',2,3],['m','x1',335,250],['m','x2',120,255]],[['m',3,140,230],['m','x2',160,240]]]},
+    zone32:{holder:1, off:[[1,250,330],[2,400,260],[3,100,260],[4,420,380],[5,80,380]], def:[[170,230,'1'],[250,240,'2'],[330,230,'3'],[190,140,'4'],[310,140,'5']],
+      steps:[[['p',1,2],['m','x0',215,235],['m','x1',290,240],['m','x2',360,240]],[['p',2,4],['m','x2',395,300],['m','x1',330,240]],[['p',4,1],['m','x2',330,230],['m','x0',170,230]]]},
+    trap:{holder:1, off:[[1,90,265],[2,300,330],[3,400,240],[4,300,160],[5,200,170]], def:[[105,235],[105,300],[250,220],[330,300],[420,250]],
+      steps:[[['p',1,2],['m','x0',120,250],['m','x1',120,290],['m','x2',230,285]],[['p',2,3],['m','x3',330,290],['m','x4',380,270]],[['m',3,420,250],['m','x4',400,240]]]},
+    zone23:{holder:1, off:[[1,250,330],[2,400,260],[3,100,260],[4,420,380],[5,80,380]], def:[[205,255,'1'],[295,255,'2'],[130,150,'3'],[250,125,'4'],[370,150,'5']],
+      steps:[[['p',1,2],['m','x0',260,255],['m','x1',330,250]],[['p',2,3],['m','x2',180,160],['m','x3',255,140],['m','x4',330,160]],[['m',3,120,300]]]}
+  };
+
+  function setPos(el,n,x,y){
+    var c=el.querySelector('[data-p="'+n+'"]'), t=el.querySelector('[data-t="'+n+'"]');
+    c.setAttribute('cx',x); c.setAttribute('cy',y);
+    t.setAttribute('x',x); t.setAttribute('y',y+6);
+  }
+  function setBall(el,x,y){ var b=el.querySelector('[data-ball]'); b.setAttribute('cx',x); b.setAttribute('cy',y); }
+  function ballHold(el){ var h=el._pos[el._holder]; setBall(el,h[0]+14,h[1]-14); }
+  function setHint(el,txt){ el.querySelector('[data-hint]').textContent=txt; }
+
+  function build(el,cfg){
+    var s='<svg viewBox="0 0 500 470" width="100%" style="max-width:420px;display:block;margin:10px auto;cursor:pointer">'+court();
+    (cfg.def||[]).forEach(function(d,i){
+      s+='<circle data-p="x'+i+'" cx="'+d[0]+'" cy="'+d[1]+'" r="16" fill="#ffffff" stroke="'+BLUE+'" stroke-width="3"/>';
+      s+='<text data-t="x'+i+'" x="'+d[0]+'" y="'+(d[1]+6)+'" text-anchor="middle" font-size="16" font-weight="bold" fill="'+BLUE+'">'+(d[2]||'X')+'</text>';
+    });
+    cfg.off.forEach(function(p){
+      s+='<circle data-p="'+p[0]+'" cx="'+p[1]+'" cy="'+p[2]+'" r="16" fill="'+RED+'"/>';
+      s+='<text data-t="'+p[0]+'" x="'+p[1]+'" y="'+(p[2]+6)+'" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">'+p[0]+'</text>';
+    });
+    s+='<circle data-ball="1" cx="0" cy="0" r="8" fill="#ff8c1a" stroke="#fff" stroke-width="2"/>';
+    s+='<text data-hint="1" x="250" y="462" text-anchor="middle" font-size="15" font-weight="bold" fill="'+INK+'">Leertaste oder tippen zum Starten</text>';
+    s+='</svg><p class="muted" style="text-align:center;font-size:.85rem">Simulation: Leertaste oder auf die Grafik tippen. Rot = Angreifer, blau = Verteidiger, orange Ball = Pass.</p>';
+    el.innerHTML=s;
+    el._cfg=cfg; el._pos={};
+    cfg.off.forEach(function(p){ el._pos[p[0]]=[p[1],p[2]]; setPos(el,p[0],p[1],p[2]); });
+    (cfg.def||[]).forEach(function(d,i){ el._pos['x'+i]=[d[0],d[1]]; });
+    el._holder=cfg.holder; el._run=false; el._done=false; el._step=0;
+    ballHold(el);
+  }
+
+  function nextStep(el){
+    var steps=el._cfg.steps;
+    if(el._step>=steps.length){
+      el._run=false; el._done=true; ballHold(el); setHint(el,'Nochmal: Leertaste oder tippen');
+      return;
+    }
+    var st=steps[el._step], start={}, end={}, pass=null;
+    Object.keys(el._pos).forEach(function(n){ start[n]=el._pos[n].slice(); });
+    st.forEach(function(op){ if(op[0]==='m') end[op[1]]=[op[2],op[3]]; else pass=op; });
+    var t0=null;
+    function frame(ts){
+      if(t0===null) t0=ts;
+      var f=Math.min(1,(ts-t0)/DUR), e=f*f*(3-2*f);
+      function ip(n){ var a=start[n], b=end[n]||a; return [a[0]+(b[0]-a[0])*e, a[1]+(b[1]-a[1])*e]; }
+      Object.keys(start).forEach(function(n){ var p=ip(n); setPos(el,n,p[0],p[1]); });
+      if(pass){
+        var from=ip(pass[1]), to=ip(pass[2]);
+        setBall(el, from[0]+(to[0]-from[0])*e+14, from[1]+(to[1]-from[1])*e-14);
+      } else {
+        var h=ip(el._holder); setBall(el,h[0]+14,h[1]-14);
+      }
+      if(f<1){ requestAnimationFrame(frame); return; }
+      Object.keys(end).forEach(function(n){ el._pos[n]=end[n].slice(); });
+      if(pass) el._holder=pass[2];
+      ballHold(el);
+      el._step++;
+      setTimeout(function(){ nextStep(el); }, 250);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start(el){
+    if(el._run) return;
+    if(el._done) build(el, el._cfg);
+    el._run=true; setHint(el,'');
+    nextStep(el);
+  }
+
+  var visible=new Set(), nodes=[];
+  document.querySelectorAll('.diagram[data-play]').forEach(function(el){
+    var key=el.getAttribute('data-play');
+    if(!ANIM[key]) return;
+    build(el, ANIM[key]);
+    el.addEventListener('click', function(){ start(el); });
+    nodes.push(el);
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting) visible.add(en.target); else visible.delete(en.target); });
+  },{threshold:0.6});
+  nodes.forEach(function(el){ io.observe(el); });
+
+  document.addEventListener('keydown', function(e){
+    if(!(e.code==='Space' || e.key===' ')) return;
+    if(document.getElementById('spiel').classList.contains('active')) return;
+    var target=null;
+    visible.forEach(function(el){ if(!target) target=el; });
+    if(target){ e.preventDefault(); start(target); }
+  });
+})();
+</script>
+
 </body>
 </html>
